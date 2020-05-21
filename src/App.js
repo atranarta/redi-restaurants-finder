@@ -1,23 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  const [googleData, setGoogleData] = useState(null);
+  
+  useEffect(() => {
+    axios
+      .get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=1500&type=restaurant&keyword=cruise&key=AIzaSyC3lNwXJZaRdY3wFgpiqQsnrtHRbteB6FQs')
+      .then(({ data }) => {
+        setGoogleData(data);
+      });
+  }, []);
+
+  console.log(googleData);
+
+
+  return googleData ? (
+    <div className="goggleList">
+      {googleData.map(data => (
+        <>
+          <p>{data}</p>
+        </>
+      ))}
     </div>
-  );
-}
+  ) : null;
+};
 
 export default App;
