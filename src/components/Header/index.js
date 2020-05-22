@@ -3,9 +3,9 @@ import React from 'react';
 import './Header.scss';
 
 const Header = () => (
-  <div className="container">
-    
-  </div>
+  <header>
+    <h1>Find your perfect place to eat</h1>
+  </header>
 )
 
 export default Header;
