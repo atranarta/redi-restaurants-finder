@@ -4,10 +4,10 @@
   border-radius: 3px;
   transition: background-color 0.5s ease-in-out;
   display: flex;
-  
+
   &:hover {
     background-color: rgba(#ffffff, 0.3);
-    box-shadow: 1px 2px 20px darken(#2f4f4f, 10);  
+    box-shadow: 1px 2px 20px darken(#2f4f4f, 10);
   }
 
   .textbox {
@@ -19,9 +19,9 @@
       color: #131313;
       margin-bottom: 5px;
     }
-  
+
     p {
-      color: darken( #2f4f4f, 15);
+      color: darken(#2f4f4f, 15);
       font-size: 14px;
     }
   }
@@ -33,4 +33,18 @@
     text-align: right;
     object-fit: cover;
   }
+}
+
+main {
+  padding: 40px;
+  background: #2f4f4f;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 20px;
+
+  // ul {
+  //   display: grid;
+  //   grid-template-columns: 1fr 1fr;
+  //   gap: 20px 20px;
+  // }
 }
