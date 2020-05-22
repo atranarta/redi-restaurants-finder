@@ -2,7 +2,7 @@ import React from 'react';
 
 import './List.scss';
 
-import Placeholder from '../../../assets/images/Canva - Raspberry in Bowl.jpg';
+import Placeholder from '../../../assets/images/Raspberry_in_Bowl.jpg';
 
 const List = () => (
   <li className="ListItem">
