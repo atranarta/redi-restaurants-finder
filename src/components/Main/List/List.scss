@@ -1,0 +1,36 @@
+.ListItem {
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background-color 0.5s ease-in-out;
+  display: flex;
+  
+  &:hover {
+    background-color: rgba(#ffffff, 0.3);
+    box-shadow: 1px 2px 20px darken(#2f4f4f, 10);  
+  }
+
+  .textbox {
+    flex: 1;
+
+    h2 {
+      font-size: 20px;
+      font-weight: 300;
+      color: #131313;
+      margin-bottom: 5px;
+    }
+  
+    p {
+      color: darken( #2f4f4f, 15);
+      font-size: 14px;
+    }
+  }
+
+  img {
+    display: block;
+    width: 100px;
+    height: 100px;
+    text-align: right;
+    object-fit: cover;
+  }
+}
