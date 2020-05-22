@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  outline: none;
+  font-family: 'Roboto', -apple-system, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #333333;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 960px;
+  height: 100%;
+  background-color: #a2a2a2;
+}
