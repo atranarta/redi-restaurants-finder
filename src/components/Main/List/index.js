@@ -33,6 +33,14 @@ export class List extends React.Component {
             <div className="textbox">
               <h2>{rest.name}</h2>
               <p className="adress">{rest.formatted_address}</p>
+              <p>
+                Open now?
+                {rest.opening_hours.open_now ? (
+                  <span style={{ fontWeight: "bold" }}> Yes</span>
+                ) : (
+                  <span style={{ fontWeight: "bold" }}> No</span>
+                )}
+              </p>
             </div>
             <img src={Placeholder} alt="restaurant" />
           </li>
