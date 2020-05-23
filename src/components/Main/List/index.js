@@ -33,12 +33,12 @@ export class List extends React.Component {
           <li className="ListItem" key={rest.id}>
             <div className="textbox">
               <h2>{rest.name}</h2>
-              <p className="adress">{rest.formatted_address}</p>
+              <p className="address">{rest.formatted_address}</p>
               <p className="isOpen">
                 {rest.opening_hours.open_now ? (
                   <span className="open">Open</span>
                 ) : (
-                    <span className="close">Close</span>
+                    <span className="closed">Closed</span>
                   )}
               </p>
             </div>
