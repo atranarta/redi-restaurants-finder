@@ -21,8 +21,26 @@
     }
 
     p {
-      color: darken(#2f4f4f, 15);
       font-size: 14px;
+
+      &.isOpen {
+        margin-top: 10px;
+        text-transform: uppercase;
+
+        span {
+          letter-spacing: 1px;
+          font-weight: bold;
+
+          &.open {
+            color: darken(#2f4f4f, 15);
+          }
+
+          &.close {
+            color: darken(#942b2b, 15);
+          }
+        }
+
+      }
     }
   }
 
