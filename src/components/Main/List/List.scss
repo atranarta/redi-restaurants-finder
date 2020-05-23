@@ -1,3 +1,17 @@
+@import "../../../media_mixin.scss";
+
+main {
+  padding: 40px;
+  background: #2f4f4f;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 20px;
+
+  @include _800 {
+    display: block;
+  }
+}
+
 .ListItem {
   padding: 10px;
   cursor: pointer;
@@ -12,17 +26,57 @@
 
   .textbox {
     flex: 1;
-
+  
     h2 {
       font-size: 20px;
       font-weight: 300;
       color: #131313;
       margin-bottom: 5px;
+
+      @include _970 {
+        font-size: 16px;
+      }
+
+      @include _800 {
+        font-size: 18px;
+      }
+
+      @include _450 {
+        font-size: 14px;
+      }
     }
 
     p {
-      color: darken(#2f4f4f, 15);
       font-size: 14px;
+
+      @include _970 {
+        font-size: 12px;
+      }
+
+      @include _800 {
+        font-size: 14px;
+      }
+
+      @include _450 {
+        font-size: 11px;
+      }
+
+      &.isOpen {
+        margin-top: 10px;
+
+        span {
+          letter-spacing: 1px;
+          font-weight: bold;
+
+          &.open {
+            color: darken(#2f4f4f, 15);
+          }
+
+          &.closed {
+            color: darken(#942b2b, 15);
+          }
+        }
+      }
     }
   }
 
@@ -32,13 +86,22 @@
     height: 100px;
     text-align: right;
     object-fit: cover;
+    margin-left: 10px;
+
+    @include _970 {
+      width: 80px;
+      height: 80px;
+    }
+
+    @include _800 {
+      width: 90px;
+      height: 90px;
+    }
+
+    @include _450 {
+      width: 70px;
+      height: 70px;
+    }
   }
 }
 
-main {
-  padding: 40px;
-  background: #2f4f4f;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px 20px;
-}

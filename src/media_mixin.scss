@@ -1,0 +1,20 @@
+@mixin _970 {
+  @media (max-width: 970px){
+      @content;
+  }
+}
+@mixin _870 {
+  @media (max-width: 870px){
+      @content;
+  }
+}
+@mixin _800 {
+  @media (max-width: 800px){
+      @content;
+  }
+}
+@mixin _450{
+  @media (max-width: 450px){
+      @content;
+  }
+}
