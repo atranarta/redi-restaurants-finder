@@ -15,6 +15,7 @@ export class List extends React.Component {
       rests: [],
     };
   }
+  
   async componentDidMount() {
     axios
       .get(apiLink)
