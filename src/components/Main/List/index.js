@@ -4,6 +4,7 @@ import axios from "axios";
 import "./List.scss";
 
 import Placeholder from "../../../assets/images/Raspberry_in_Bowl.jpg";
+import { apiKey } from "../../../apiKey";
 
 const apiLink =
   "https://test-places-response.s3.eu-west-3.amazonaws.com/response.json";
@@ -15,7 +16,6 @@ export class List extends React.Component {
       rests: [],
     };
   }
-  
   async componentDidMount() {
     axios
       .get(apiLink)
@@ -43,7 +43,15 @@ export class List extends React.Component {
                 )}
               </p>
             </div>
-            <img src={Placeholder} alt="restaurant" />
+            <img
+              src={
+                "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=" +
+                rest.photos[0].photo_reference +
+                "&key=" +
+                apiKey
+              }
+              alt="restaurant"
+            />
           </li>
         ))}
       </main>
