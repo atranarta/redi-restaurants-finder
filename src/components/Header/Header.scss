@@ -5,6 +5,8 @@ header {
   height: 325px;
   background: url("../../assets/images/Black_Ceramic_Bowl_With_Food.jpg") no-repeat scroll -50px -300px;
   background-size: 1120px;
+  padding: 60px 30px;
+  box-sizing: border-box;
 
   @include _970 {
     height: 300px;
@@ -20,26 +22,75 @@ header {
     height: 250px;
     background-position: -195px -340px;
   }
-}
 
-h1 {
-  color: #bdbdbd;
-  font-weight: 300;
-  font-style: italic;
-  font-size: 36px;
-  text-align: right;
-  padding: 60px 30px;
-
-  @include _970 {
-    font-size: 32px;
+  h1 {
+    color: #bdbdbd;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 36px;
+    text-align: right;
+  
+    @include _970 {
+      font-size: 32px;
+    }
+  
+    @include _870 {
+      font-size: 30px;
+    }
+  
+    @include _800 {
+      font-size: 28px;
+      padding: 60px 30px 60px 200px;
+    }
   }
 
-  @include _870 {
-    font-size: 30px;
-  }
+  .searcField {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
 
-  @include _800 {
-    font-size: 28px;
-    padding: 60px 30px 60px 200px;
+    .search {
+      width: 80%;
+      height: 30px;
+      line-height: 30px;
+      border-radius: 3px;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid #636363;
+      border-right: none;
+      outline: none;
+      padding: 3px 7px;
+      box-sizing: border-box;
+      font-size: 18px;
+      color: #ebebeb;
+
+      &:active,
+      &:focus {
+        background: rgba(255, 255, 255, 0.8);
+        color: #3a3a3a;
+      }
+    }
+
+    button {
+      font-size: 18px;
+      padding: 3px 7px;
+      box-sizing: border-box;
+      height: 30px;
+      background: none;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid #636363;
+      border-radius: 3px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-left: none;
+
+      i {
+        color: #bdbdbd;
+      }
+    }
   }
 }
