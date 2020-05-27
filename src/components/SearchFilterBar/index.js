@@ -6,16 +6,14 @@ import SearchBar from "./SearchBar";
 
 import "./Search.scss";
 
-export class Search extends React.Component {
-  render() {
-    return (
-      <section className="searchFilterBar">
-        <SearchBar />
-        {/* <Filters /> */}
-        {/* <SearchCategories /> */}
-      </section>
-    );
-  }
-}
+const Search = () => {
+  return (
+    <section className="searchFilterBar">
+      <SearchBar />
+      {/* <Filters /> */}
+      {/* <SearchCategories /> */}
+    </section>
+  );
+};
 
 export default Search;
