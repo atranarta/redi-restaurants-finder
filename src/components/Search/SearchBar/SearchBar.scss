@@ -1,0 +1,62 @@
+@import "../../../media_mixin.scss";
+
+// * {
+//   box-sizing: border-box;
+//   border: 1px solid red;
+// }
+
+.searchField {
+  display: flex;
+  justify-content: center;
+
+  .search {
+    width: 50%;
+    height: 60px;
+    line-height: 30px;
+    border-radius: 3px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid #636363;
+    border-right: none;
+    outline: none;
+    padding: 3px 7px;
+    box-sizing: border-box;
+    font-size: 18px;
+    color: #ebebeb;
+
+    &:active,
+    &:focus {
+      background: rgba(255, 255, 255, 0.8);
+      color: #3a3a3a;
+    }
+  }
+  ::placeholder {
+    color: #ebebeb;
+    padding-left: 10px;
+  }
+  input:focus::placeholder {
+    color: transparent;
+  }
+
+  button {
+    font-size: 28px;
+    padding: 3px 7px;
+    box-sizing: border-box;
+    height: 60px;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid #636363;
+    border-radius: 3px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: none;
+
+    i {
+      color: #bdbdbd;
+    }
+  }
+}

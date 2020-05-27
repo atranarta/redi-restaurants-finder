@@ -3,7 +3,7 @@ import axios from "axios";
 
 import "./List.scss";
 
-import Placeholder from "../../../assets/images/Raspberry_in_Bowl.jpg";
+import Placeholder from "../../assets/images/Raspberry_in_Bowl.jpg";
 
 const apiLink =
   "https://test-places-response.s3.eu-west-3.amazonaws.com/response.json";
@@ -21,7 +21,6 @@ export class List extends React.Component {
       .get(apiLink)
       .then((res) => {
         this.setState({ rests: res.data.results });
-        console.log(res.data.results[0].opening_hours.open_now);
       })
       .catch((error) => console.log(error));
   }
@@ -38,8 +37,8 @@ export class List extends React.Component {
                 {rest.opening_hours.open_now ? (
                   <span className="open">Open</span>
                 ) : (
-                    <span className="closed">Closed</span>
-                  )}
+                  <span className="closed">Closed</span>
+                )}
               </p>
             </div>
             <img src={Placeholder} alt="restaurant" />
