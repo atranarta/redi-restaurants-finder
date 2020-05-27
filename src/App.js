@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./components/Header";
-import Search from "./components/Search";
+import SearchFilterBar from "./components/SearchFilterBar";
 import List from "./components/List";
 
 import "./index.scss";
@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="wrapper">
       <Header />
-      <Search />
+      <SearchFilterBar />
       <List />
     </div>
   );
