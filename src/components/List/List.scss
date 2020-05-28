@@ -62,7 +62,7 @@ main {
       }
 
       &.isOpen {
-        margin-top: 10px;
+        // margin-top: 10px;
 
         span {
           letter-spacing: 1px;
@@ -103,4 +103,22 @@ main {
       height: 70px;
     }
   }
+}
+
+.details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.price {
+  margin-right: 10px;
+}
+
+.rating {
+  margin-right: 10px;
+}
+.rating-number {
+  font-weight: bold;
 }
