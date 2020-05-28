@@ -118,6 +118,10 @@ main {
 
 .rating {
   margin-right: 10px;
+  
+  span {
+    padding: 5px;
+  }
 }
 .rating-number {
   font-weight: bold;
