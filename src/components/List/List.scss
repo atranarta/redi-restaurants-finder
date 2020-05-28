@@ -62,7 +62,6 @@ main {
       }
 
       &.isOpen {
-        // margin-top: 10px;
 
         span {
           letter-spacing: 1px;
@@ -75,6 +74,26 @@ main {
           &.closed {
             color: darken(#942b2b, 15);
           }
+        }
+      }
+    }
+
+    .details {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 10px;
+
+      .price {
+        margin-right: 10px;
+      }
+
+      .rating {
+        margin-right: 10px;
+
+        .rating-number {
+          padding: 5px;
+          font-weight: bold;
         }
       }
     }
@@ -103,26 +122,4 @@ main {
       height: 70px;
     }
   }
-}
-
-.details {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-top: 10px;
-}
-
-.price {
-  margin-right: 10px;
-}
-
-.rating {
-  margin-right: 10px;
-  
-  span {
-    padding: 5px;
-  }
-}
-.rating-number {
-  font-weight: bold;
 }
