@@ -2,7 +2,7 @@
 
 main {
   padding: 40px;
-  background: #2f4f4f;
+  background: #4e8080;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px 20px;
@@ -21,7 +21,7 @@ main {
 
   &:hover {
     background-color: rgba(#ffffff, 0.3);
-    box-shadow: 1px 2px 20px darken(#2f4f4f, 10);
+    box-shadow: 1px 2px 20px darken(#4e8080, 10);
   }
 
   .textbox {
@@ -69,7 +69,7 @@ main {
           font-weight: bold;
 
           &.open {
-            color: darken(#2f4f4f, 15);
+            color: darken(#4e8080, 15);
           }
 
           &.closed {
