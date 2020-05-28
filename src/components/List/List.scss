@@ -24,6 +24,23 @@ main {
     box-shadow: 1px 2px 20px darken(#4e8080, 10);
   }
 
+  p {
+    font-size: 14px;
+
+    @include _970 {
+      font-size: 12px;
+    }
+
+    @include _800 {
+      font-size: 14px;
+    }
+
+    @include _450 {
+      font-size: 11px;
+    }
+
+  }
+
   .textbox {
     flex: 1;
 
@@ -46,56 +63,26 @@ main {
       }
     }
 
-    p {
-      font-size: 14px;
+    .isOpen {
+      margin-top: 5px;
 
-      @include _970 {
-        font-size: 12px;
-      }
+      p {
+        letter-spacing: 1px;
+        font-weight: bold;
 
-      @include _800 {
-        font-size: 14px;
-      }
+        &.open {
+          color: darken(#4e8080, 15);
+        }
 
-      @include _450 {
-        font-size: 11px;
-      }
-
-      &.isOpen {
-
-        span {
-          letter-spacing: 1px;
-          font-weight: bold;
-
-          &.open {
-            color: darken(#4e8080, 15);
-          }
-
-          &.closed {
-            color: darken(#942b2b, 15);
-          }
+        &.closed {
+          color: darken(#942b2b, 15);
         }
       }
     }
 
-    .details {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      margin-top: 10px;
-
-      .price {
-        margin-right: 10px;
-      }
-
-      .rating {
-        margin-right: 10px;
-
-        .rating-number {
-          padding: 5px;
-          font-weight: bold;
-        }
-      }
+    .price {
+      margin-top: 7px;
+      color: darken(#4E7F80, 25);
     }
   }
 
@@ -105,7 +92,7 @@ main {
     height: 100px;
     text-align: right;
     object-fit: cover;
-    margin-left: 10px;
+    margin-right: 10px;
 
     @include _970 {
       width: 80px;
@@ -120,6 +107,16 @@ main {
     @include _450 {
       width: 70px;
       height: 70px;
+    }
+  }
+
+  .rating {
+    margin-left: 10px;
+
+    .rating-number {
+      padding: 5px;
+      font-weight: bold;
+      border-radius: 1px;
     }
   }
 }
