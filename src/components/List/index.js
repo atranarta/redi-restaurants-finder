@@ -28,13 +28,19 @@ const List = () => {
           <div className="textbox">
             <h2>{rest.name}</h2>
             <p className="address">{rest.formatted_address}</p>
-            <p className="isOpen">
-              {rest.opening_hours.open_now ? (
-                <span className="open">Open</span>
-              ) : (
-                <span className="closed">Closed</span>
-              )}
-            </p>
+            <div className="details">
+              <p className="price">{"$".repeat(rest.price_level)}</p>
+              <p className="rating">
+                Rating: <span className="rating-number">{rest.rating}</span>
+              </p>
+              <p className="isOpen">
+                {rest.opening_hours.open_now ? (
+                  <span className="open">Open</span>
+                ) : (
+                  <span className="closed">Closed</span>
+                )}
+              </p>
+            </div>
           </div>
           <img src={Placeholder} alt="restaurant" />
         </li>
