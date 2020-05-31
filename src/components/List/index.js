@@ -68,7 +68,7 @@ const List = () => {
         <label for="open">Open now</label>
         <input type="checkbox" id="open" name="open" onChange={() => setIsOpen(!isOpen)} />
       </div>
-      <main>
+      <ul>
         {rests.filter(filterRestaurantsByPrice).filter(filterRestaurantsByOpen).map((rest) => (
           <li className="ListItem" key={rest.id}>
             <img src={Placeholder} alt="restaurant" />
@@ -88,7 +88,7 @@ const List = () => {
             </p>
           </li>
         ))}
-      </main>
+      </ul>
     </>
   );
 };
