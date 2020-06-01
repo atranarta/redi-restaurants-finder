@@ -7,21 +7,22 @@ import Placeholder from "../../assets/images/Raspberry_in_Bowl.jpg";
 
 const getRatingColor = (rating) => {
   if (rating <= 2.3) {
-    return `#8B0000`
+    return `#8B0000`;
   } else if (rating <= 2.8) {
-    return `#FF6347`
+    return `#FF6347`;
   } else if (rating <= 3.6) {
-    return `#FFA500`
+    return `#FFA500`;
   } else if (rating <= 4.2) {
-    return `#FFD700`
+    return `#FFD700`;
   } else {
-    return `#00FF7F`
+    return `#00FF7F`;
   }
-}
+};
 
 //Custom-made API, containing 20 static result restaurants
 const apiLink =
-  "https://test-places-response.s3.eu-west-3.amazonaws.com/response.json";
+  // "https://test-places-response.s3.eu-west-3.amazonaws.com/response.json";
+  "https://redi-final-restaurants.herokuapp.com/restaurants";
 
 // Component, performing fetching data from the API and displaying the total list of restaurants,
 // including their names and addresses
@@ -39,15 +40,15 @@ const List = () => {
   const [selectedPrice, setSelectedPrice] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 
-  const filterRestaurantsByPrice = rest => {
-    if (selectedPrice !== "" && typeof rest.price_level !== 'undefined') {
+  const filterRestaurantsByPrice = (rest) => {
+    if (selectedPrice !== "" && typeof rest.price_level !== "undefined") {
       return rest.price_level.toString() === selectedPrice;
     }
 
     return true;
   };
 
-  const filterRestaurantsByOpen = rest => {
+  const filterRestaurantsByOpen = (rest) => {
     if (isOpen) {
       return rest.opening_hours.open_now;
     }
@@ -58,7 +59,11 @@ const List = () => {
   return (
     <>
       <div className="filterBox">
-        <select name="price" id="price" onChange={event => setSelectedPrice(event.target.value)}>
+        <select
+          name="price"
+          id="price"
+          onChange={(event) => setSelectedPrice(event.target.value)}
+        >
           <option value="">Show all</option>
           <option value="1">$</option>
           <option value="2">$$</option>
@@ -66,28 +71,43 @@ const List = () => {
           <option value="4">$$$$</option>
         </select>
         <label for="open">Open now</label>
-        <input type="checkbox" id="open" name="open" onChange={() => setIsOpen(!isOpen)} />
+        <input
+          type="checkbox"
+          id="open"
+          name="open"
+          onChange={() => setIsOpen(!isOpen)}
+        />
       </div>
       <ul>
-        {rests.filter(filterRestaurantsByPrice).filter(filterRestaurantsByOpen).map((rest) => (
-          <li className="ListItem" key={rest.id}>
-            <img src={Placeholder} alt="restaurant" />
-            <div className="textbox">
-              <h2>{rest.name}</h2>
-              <p className="address">{rest.formatted_address}</p>
-              <p className="price">{"$".repeat(rest.price_level)}</p>
+        {rests
+          .filter(filterRestaurantsByPrice)
+          .filter(filterRestaurantsByOpen)
+          .map((rest) => (
+            <li className="ListItem" key={rest.id}>
+              <img src={rest.photos[0].links[1]} alt="restaurant" />
+              <div className="textbox">
+                <h2>{rest.name}</h2>
+                <p className="address">{rest.formatted_address}</p>
+                <p className="price">{"$".repeat(rest.price_level)}</p>
 
-              <div className="isOpen">
-                {rest.opening_hours.open_now
-                  ? (<p className="open">Open</p>)
-                  : (<p className="closed">Closed</p>)}
+                <div className="isOpen">
+                  {rest.opening_hours.open_now ? (
+                    <p className="open">Open</p>
+                  ) : (
+                    <p className="closed">Closed</p>
+                  )}
+                </div>
               </div>
-            </div>
-            <p className="rating">
-              <span className="rating-number" style={{ backgroundColor: getRatingColor(rest.rating) }}>{rest.rating}</span>
-            </p>
-          </li>
-        ))}
+              <p className="rating">
+                <span
+                  className="rating-number"
+                  style={{ backgroundColor: getRatingColor(rest.rating) }}
+                >
+                  {rest.rating}
+                </span>
+              </p>
+            </li>
+          ))}
       </ul>
     </>
   );
