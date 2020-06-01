@@ -9,8 +9,10 @@ function App() {
   return (
     <div className="wrapper">
       <Header />
-      <SearchFilterBar />
-      <List />
+      <main>
+        <SearchFilterBar />
+        <List />
+      </main>
     </div>
   );
 }

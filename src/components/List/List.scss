@@ -1,8 +1,8 @@
 @import "../../media_mixin.scss";
 
-main {
+ul {
   padding: 40px;
-  background: #4e8080;
+ 
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px 20px;
