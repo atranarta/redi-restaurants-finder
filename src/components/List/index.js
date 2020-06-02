@@ -3,8 +3,6 @@ import axios from "axios";
 
 import "./List.scss";
 
-import Placeholder from "../../assets/images/Raspberry_in_Bowl.jpg";
-
 const getRatingColor = (rating) => {
   if (rating <= 2.3) {
     return `#8B0000`;
