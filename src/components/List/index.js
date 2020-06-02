@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import FilterItem from "./FilterItem";
 
@@ -19,26 +19,17 @@ const getRatingColor = (rating) => {
   }
 };
 
-const apiLink = "https://redi-final-restaurants.herokuapp.com/restaurants";
-
-const List = () => {
-  const [rests, setRests] = useState([]);
-  useEffect(() => {
-    axios
-      .get(apiLink)
-      .then((res) => {
-        setRests(res.data.results);
-      })
-      .catch((error) => console.log(error));
-  }, []);
-
+const List = ({ rests }) => {
   const [selectedPrice, setSelectedPrice] = useState("");
   const [selectedCuisine, setselectedCuisine] = useState("");
   const [selectedType, setSelectedType] = useState("");
-  const [selectedDietaryRestrictions, setSelectedDietaryRestrictions] = useState("");
+  const [
+    selectedDietaryRestrictions,
+    setSelectedDietaryRestrictions,
+  ] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 
-  const filterRestaurantsByPrice = rest => {
+  const filterRestaurantsByPrice = (rest) => {
     if (selectedPrice !== "" && typeof rest.price_level !== "undefined") {
       return rest.price_level.toString() === selectedPrice;
     }
@@ -46,35 +37,35 @@ const List = () => {
     return true;
   };
 
-  const filterRestaurantsByCuisine = rest => {
+  const filterRestaurantsByCuisine = (rest) => {
     if (selectedCuisine !== "") {
       return rest.cuisine === selectedCuisine;
     }
 
     return true;
-  }
+  };
 
-  const filterRestaurantsByType = rest => {
-    if (selectedType === 'delivery') {
+  const filterRestaurantsByType = (rest) => {
+    if (selectedType === "delivery") {
       return rest.delivery;
     }
 
-    if (selectedType === 'pickup') {
+    if (selectedType === "pickup") {
       return rest.pickup;
     }
 
     return true;
   };
 
-  const filterRestaurantsByDietaryRestrictions = rest => {
+  const filterRestaurantsByDietaryRestrictions = (rest) => {
     if (selectedDietaryRestrictions !== "") {
       return rest.dietaryRestrictions === selectedDietaryRestrictions;
     }
 
     return true;
-  }
+  };
 
-  const filterRestaurantsByOpen = rest => {
+  const filterRestaurantsByOpen = (rest) => {
     if (isOpen) {
       return rest.opening_hours.open_now;
     }
@@ -85,14 +76,13 @@ const List = () => {
   return (
     <>
       <div className="filterBox">
-
         <FilterItem
-          title='Cuisine'
+          title="Cuisine"
           main={
             <select
               name="cuisine"
               id="cuisine"
-              onChange={event => setselectedCuisine(event.target.value)}
+              onChange={(event) => setselectedCuisine(event.target.value)}
             >
               <option value="">Show all</option>
               <option value="italian">Italian</option>
@@ -106,12 +96,12 @@ const List = () => {
         />
 
         <FilterItem
-          title='Price'
+          title="Price"
           main={
             <select
               name="price"
               id="price"
-              onChange={event => setSelectedPrice(event.target.value)}
+              onChange={(event) => setSelectedPrice(event.target.value)}
             >
               <option value="">Show all</option>
               <option value="1">$</option>
@@ -123,12 +113,12 @@ const List = () => {
         />
 
         <FilterItem
-          title='Type'
+          title="Type"
           main={
             <select
               name="type"
               id="type"
-              onChange={event => setSelectedType(event.target.value)}
+              onChange={(event) => setSelectedType(event.target.value)}
             >
               <option value="">Show all</option>
               <option value="delivery">Delivery</option>
@@ -138,12 +128,14 @@ const List = () => {
         />
 
         <FilterItem
-          title='Dietary Restrictions'
+          title="Dietary Restrictions"
           main={
             <select
               name="dietaryRestrictions"
               id="dietaryRestrictions"
-              onChange={event => setSelectedDietaryRestrictions(event.target.value)}
+              onChange={(event) =>
+                setSelectedDietaryRestrictions(event.target.value)
+              }
             >
               <option value="">Show all</option>
               <option value="Kosher">Kosher</option>
@@ -163,7 +155,6 @@ const List = () => {
           name="open"
           onChange={() => setIsOpen(!isOpen)}
         />
-
       </div>
       <ul>
         {rests
@@ -173,30 +164,35 @@ const List = () => {
           .filter(filterRestaurantsByDietaryRestrictions)
           .filter(filterRestaurantsByOpen)
           .map((rest) => (
-            <li className="ListItem" key={rest.id}>
-              <img src={rest.photos[0].links[1]} alt="restaurant" />
-              <div className="textbox">
-                <h2>{rest.name}</h2>
-                <p className="address">{rest.formatted_address}</p>
-                <p className="price">{"$".repeat(rest.price_level)}</p>
+            <Link
+              to={`/restaurants/${rest.name}`}
+              style={{ textDecoration: "none" }}
+            >
+              <li className="ListItem" key={rest.id}>
+                <img src={rest.photos[0].links[1]} alt="restaurant" />
+                <div className="textbox">
+                  <h2>{rest.name}</h2>
+                  <p className="address">{rest.formatted_address}</p>
+                  <p className="price">{"$".repeat(rest.price_level)}</p>
 
-                <div className="isOpen">
-                  {rest.opening_hours.open_now ? (
-                    <p className="open">Open</p>
-                  ) : (
+                  <div className="isOpen">
+                    {rest.opening_hours.open_now ? (
+                      <p className="open">Open</p>
+                    ) : (
                       <p className="closed">Closed</p>
                     )}
+                  </div>
                 </div>
-              </div>
-              <p className="rating">
-                <span
-                  className="rating-number"
-                  style={{ backgroundColor: getRatingColor(rest.rating) }}
-                >
-                  {rest.rating}
-                </span>
-              </p>
-            </li>
+                <p className="rating">
+                  <span
+                    className="rating-number"
+                    style={{ backgroundColor: getRatingColor(rest.rating) }}
+                  >
+                    {rest.rating}
+                  </span>
+                </p>
+              </li>
+            </Link>
           ))}
       </ul>
     </>
