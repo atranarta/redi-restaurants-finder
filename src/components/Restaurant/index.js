@@ -22,7 +22,7 @@ const Restaurant = ({ rests }) => {
             {rest.opening_hours.hours.open}
           </p>
           <p>Rating: {rest.rating}</p>
-          <p>
+          <p style={{ textTransform: "capitalize" }}>
             Food: {rest.cuisine}, {rest.dietaryRestrictions}
           </p>
         </div>
