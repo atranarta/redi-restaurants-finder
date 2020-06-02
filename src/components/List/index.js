@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+import FilterItem from "./FilterItem";
+
 import "./List.scss";
 
 const getRatingColor = (rating) => {
@@ -75,9 +77,9 @@ const List = () => {
     <>
       <div className="filterBox">
 
-        <div className="filterItem">
-          <p className="title">Price:</p>
-          <select
+        <FilterItem
+          title='Price:'
+          main={<select
             name="price"
             id="price"
             onChange={event => setSelectedPrice(event.target.value)}
@@ -87,12 +89,12 @@ const List = () => {
             <option value="2">$$</option>
             <option value="3">$$$</option>
             <option value="4">$$$$</option>
-          </select>
-        </div>
+          </select>}
+        />
 
-        <div className="filterItem">
-          <p className="title">Type:</p>
-          <select
+        <FilterItem
+          title='Type:'
+          main={<select
             name="type"
             id="type"
             onChange={event => setSelectedType(event.target.value)}
@@ -100,12 +102,12 @@ const List = () => {
             <option value="">Show all</option>
             <option value="delivery">Delivery</option>
             <option value="pickup">Pickup</option>
-          </select>
-        </div>
+          </select>}
+        />
 
-        <div className="filterItem">
-          <p className="title">Dietary Restrictions:</p>
-          <select
+        <FilterItem
+          title='Dietary Restrictions:'
+          main={<select
             name="dietaryRestrictions"
             id="dietaryRestrictions"
             onChange={event => setSelectedDietaryRestrictions(event.target.value)}
@@ -117,8 +119,8 @@ const List = () => {
             <option value="Lactose free">Lactose Free</option>
             <option value="Vegan">Vegan</option>
             <option value="Vegetarian">Vegetarian</option>
-          </select>
-        </div>
+          </select>}
+        />
 
         <label for="open">Open now</label>
         <input
