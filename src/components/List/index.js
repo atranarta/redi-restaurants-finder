@@ -33,6 +33,7 @@ const List = () => {
   }, []);
 
   const [selectedPrice, setSelectedPrice] = useState("");
+  const [selectedCuisine, setselectedCuisine] = useState("");
   const [selectedType, setSelectedType] = useState("");
   const [selectedDietaryRestrictions, setSelectedDietaryRestrictions] = useState("");
   const [isOpen, setIsOpen] = useState(false);
@@ -44,6 +45,14 @@ const List = () => {
 
     return true;
   };
+
+  const filterRestaurantsByCuisine = rest => {
+    if (selectedCuisine !== "") {
+      return rest.cuisine === selectedCuisine;
+    }
+
+    return true;
+  }
 
   const filterRestaurantsByType = rest => {
     if (selectedType === 'delivery') {
@@ -78,49 +87,76 @@ const List = () => {
       <div className="filterBox">
 
         <FilterItem
+          title='Cuisine:'
+          main={
+            <select
+              name="cuisine"
+              id="cuisine"
+              onChange={event => setselectedCuisine(event.target.value)}
+            >
+              <option value="">Show all</option>
+              <option value="italian">Italian</option>
+              <option value="chinese">Chinese</option>
+              <option value="thai">Thai</option>
+              <option value="mexican">Mexican</option>
+              <option value="indian">Indian</option>
+              <option value="turkish">Turkish</option>
+            </select>
+          }
+        />
+
+        <FilterItem
           title='Price:'
-          main={<select
-            name="price"
-            id="price"
-            onChange={event => setSelectedPrice(event.target.value)}
-          >
-            <option value="">Show all</option>
-            <option value="1">$</option>
-            <option value="2">$$</option>
-            <option value="3">$$$</option>
-            <option value="4">$$$$</option>
-          </select>}
+          main={
+            <select
+              name="price"
+              id="price"
+              onChange={event => setSelectedPrice(event.target.value)}
+            >
+              <option value="">Show all</option>
+              <option value="1">$</option>
+              <option value="2">$$</option>
+              <option value="3">$$$</option>
+              <option value="4">$$$$</option>
+            </select>
+          }
         />
 
         <FilterItem
           title='Type:'
-          main={<select
-            name="type"
-            id="type"
-            onChange={event => setSelectedType(event.target.value)}
-          >
-            <option value="">Show all</option>
-            <option value="delivery">Delivery</option>
-            <option value="pickup">Pickup</option>
-          </select>}
+          main={
+            <select
+              name="type"
+              id="type"
+              onChange={event => setSelectedType(event.target.value)}
+            >
+              <option value="">Show all</option>
+              <option value="delivery">Delivery</option>
+              <option value="pickup">Pickup</option>
+            </select>
+          }
         />
 
         <FilterItem
           title='Dietary Restrictions:'
-          main={<select
-            name="dietaryRestrictions"
-            id="dietaryRestrictions"
-            onChange={event => setSelectedDietaryRestrictions(event.target.value)}
-          >
-            <option value="">Show all</option>
-            <option value="Kosher">Kosher</option>
-            <option value="Halal">Halal</option>
-            <option value="Gluten Free">Gluten Free</option>
-            <option value="Lactose free">Lactose Free</option>
-            <option value="Vegan">Vegan</option>
-            <option value="Vegetarian">Vegetarian</option>
-          </select>}
+          main={
+            <select
+              name="dietaryRestrictions"
+              id="dietaryRestrictions"
+              onChange={event => setSelectedDietaryRestrictions(event.target.value)}
+            >
+              <option value="">Show all</option>
+              <option value="Kosher">Kosher</option>
+              <option value="Halal">Halal</option>
+              <option value="Gluten Free">Gluten Free</option>
+              <option value="Lactose free">Lactose Free</option>
+              <option value="Vegan">Vegan</option>
+              <option value="Vegetarian">Vegetarian</option>
+            </select>
+          }
         />
+
+
 
         <label for="open">Open now</label>
         <input
@@ -134,9 +170,10 @@ const List = () => {
       <ul>
         {rests
           .filter(filterRestaurantsByPrice)
-          .filter(filterRestaurantsByOpen)
+          .filter(filterRestaurantsByCuisine)
           .filter(filterRestaurantsByType)
           .filter(filterRestaurantsByDietaryRestrictions)
+          .filter(filterRestaurantsByOpen)
           .map((rest) => (
             <li className="ListItem" key={rest.id}>
               <img src={rest.photos[0].links[1]} alt="restaurant" />
