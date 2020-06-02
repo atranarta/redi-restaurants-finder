@@ -17,13 +17,9 @@ const getRatingColor = (rating) => {
   }
 };
 
-//Custom-made API, containing 20 static result restaurants
-const apiLink =
-  // "https://test-places-response.s3.eu-west-3.amazonaws.com/response.json";
-  "https://redi-final-restaurants.herokuapp.com/restaurants";
 
-// Component, performing fetching data from the API and displaying the total list of restaurants,
-// including their names and addresses
+const apiLink = "https://redi-final-restaurants.herokuapp.com/restaurants";
+
 const List = () => {
   const [rests, setRests] = useState([]);
   useEffect(() => {
