@@ -11,7 +11,7 @@ const SearchBar = () => {
         type="text"
       />
       <button>
-        <i class="fa fa-search"></i>
+        <i className="fa fa-search"></i>
       </button>
     </div>
   );

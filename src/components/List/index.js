@@ -148,7 +148,7 @@ const List = ({ rests }) => {
           }
         />
 
-        <label for="open">Open now</label>
+        <label htmlFor="open">Open now</label>
         <input
           type="checkbox"
           id="open"
@@ -167,8 +167,9 @@ const List = ({ rests }) => {
             <Link
               to={`/restaurants/${rest.name}`}
               style={{ textDecoration: "none" }}
+              key={rest.id}
             >
-              <li className="ListItem" key={rest.id}>
+              <li className="ListItem">
                 <img src={rest.photos[0].links[1]} alt="restaurant" />
                 <div className="textbox">
                   <h2>{rest.name}</h2>
