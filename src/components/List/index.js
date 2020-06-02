@@ -87,7 +87,7 @@ const List = () => {
       <div className="filterBox">
 
         <FilterItem
-          title='Cuisine:'
+          title='Cuisine'
           main={
             <select
               name="cuisine"
@@ -106,7 +106,7 @@ const List = () => {
         />
 
         <FilterItem
-          title='Price:'
+          title='Price'
           main={
             <select
               name="price"
@@ -123,7 +123,7 @@ const List = () => {
         />
 
         <FilterItem
-          title='Type:'
+          title='Type'
           main={
             <select
               name="type"
@@ -138,7 +138,7 @@ const List = () => {
         />
 
         <FilterItem
-          title='Dietary Restrictions:'
+          title='Dietary Restrictions'
           main={
             <select
               name="dietaryRestrictions"
@@ -155,8 +155,6 @@ const List = () => {
             </select>
           }
         />
-
-
 
         <label for="open">Open now</label>
         <input
