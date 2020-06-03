@@ -3,7 +3,6 @@ import axios from "axios";
 import { Switch, Route } from "react-router-dom";
 
 import Header from "./components/Header";
-import SearchFilterBar from "./components/SearchFilterBar";
 import List from "./components/List";
 import Restaurant from "./components/Restaurant";
 
@@ -31,7 +30,6 @@ function App() {
             <Restaurant rests={content} />
           </Route>
           <Route path="/">
-            <SearchFilterBar />
             <List rests={content} />
           </Route>
         </Switch>
