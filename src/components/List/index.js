@@ -80,6 +80,15 @@ const List = ({ rests }) => {
     return true;
   };
 
+  const removeFilters = () => {
+    setSelectedPrice("")
+    setselectedCuisine("")
+    setSelectedType("")
+    setSelectedDietaryRestrictions("")
+    setIsOpen(false)
+    setSearch("")
+  }
+
   return (
     <>
       <div className="filterSearchBox">
@@ -90,6 +99,7 @@ const List = ({ rests }) => {
               <select
                 name="cuisine"
                 id="cuisine"
+                value={selectedCuisine}
                 onChange={(event) => setselectedCuisine(event.target.value)}
               >
                 <option value="">Show all</option>
@@ -109,6 +119,7 @@ const List = ({ rests }) => {
               <select
                 name="price"
                 id="price"
+                value={selectedPrice}
                 onChange={(event) => setSelectedPrice(event.target.value)}
               >
                 <option value="">Show all</option>
@@ -126,6 +137,7 @@ const List = ({ rests }) => {
               <select
                 name="type"
                 id="type"
+                value={selectedType}
                 onChange={(event) => setSelectedType(event.target.value)}
               >
                 <option value="">Show all</option>
@@ -141,6 +153,7 @@ const List = ({ rests }) => {
               <select
                 name="dietaryRestrictions"
                 id="dietaryRestrictions"
+                value={selectedDietaryRestrictions}
                 onChange={(event) =>
                   setSelectedDietaryRestrictions(event.target.value)}
               >
@@ -160,17 +173,21 @@ const List = ({ rests }) => {
             type="checkbox"
             id="open"
             name="open"
+            checked={isOpen}
             onChange={() => setIsOpen(!isOpen)}
           />
         </div>
 
-        <div className="searchBar">
+        <div className="searchBar" >
           <input type="text" placeholder="Enter restaurant name here..."
-            onChange={event => setSearch(event.target.value)} />
+            onChange={event => setSearch(event.target.value)}
+            value={search}
+          />
         </div>
 
+        <button onClick={removeFilters}>Remove all filters</button>
       </div>
-      
+
       <ul>
         {rests
           .filter(filterRestaurantsByName)
