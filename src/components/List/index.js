@@ -23,11 +23,10 @@ const List = ({ rests }) => {
   const [selectedPrice, setSelectedPrice] = useState("");
   const [selectedCuisine, setselectedCuisine] = useState("");
   const [selectedType, setSelectedType] = useState("");
-  const [
-    selectedDietaryRestrictions,
-    setSelectedDietaryRestrictions,
-  ] = useState("");
+  const [selectedDietaryRestrictions, setSelectedDietaryRestrictions] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+
+  const [search, setSearch] = useState("");
 
   const filterRestaurantsByPrice = (rest) => {
     if (selectedPrice !== "" && typeof rest.price_level !== "undefined") {
@@ -73,91 +72,108 @@ const List = ({ rests }) => {
     return true;
   };
 
+  const filterRestaurantsByName = (rest) => {
+    if (search !== "") {
+      return rest.name.toLowerCase().includes(search.toLowerCase());
+    }
+
+    return true;
+  };
+
   return (
     <>
-      <div className="filterBox">
-        <FilterItem
-          title="Cuisine"
-          main={
-            <select
-              name="cuisine"
-              id="cuisine"
-              onChange={(event) => setselectedCuisine(event.target.value)}
-            >
-              <option value="">Show all</option>
-              <option value="italian">Italian</option>
-              <option value="chinese">Chinese</option>
-              <option value="thai">Thai</option>
-              <option value="mexican">Mexican</option>
-              <option value="indian">Indian</option>
-              <option value="turkish">Turkish</option>
-            </select>
-          }
-        />
+      <div className="filterSearchBox">
+        <div className="filterBox">
+          <FilterItem
+            title="Cuisine"
+            main={
+              <select
+                name="cuisine"
+                id="cuisine"
+                onChange={(event) => setselectedCuisine(event.target.value)}
+              >
+                <option value="">Show all</option>
+                <option value="italian">Italian</option>
+                <option value="chinese">Chinese</option>
+                <option value="thai">Thai</option>
+                <option value="mexican">Mexican</option>
+                <option value="indian">Indian</option>
+                <option value="turkish">Turkish</option>
+              </select>
+            }
+          />
 
-        <FilterItem
-          title="Price"
-          main={
-            <select
-              name="price"
-              id="price"
-              onChange={(event) => setSelectedPrice(event.target.value)}
-            >
-              <option value="">Show all</option>
-              <option value="1">$</option>
-              <option value="2">$$</option>
-              <option value="3">$$$</option>
-              <option value="4">$$$$</option>
-            </select>
-          }
-        />
+          <FilterItem
+            title="Price"
+            main={
+              <select
+                name="price"
+                id="price"
+                onChange={(event) => setSelectedPrice(event.target.value)}
+              >
+                <option value="">Show all</option>
+                <option value="1">$</option>
+                <option value="2">$$</option>
+                <option value="3">$$$</option>
+                <option value="4">$$$$</option>
+              </select>
+            }
+          />
 
-        <FilterItem
-          title="Type"
-          main={
-            <select
-              name="type"
-              id="type"
-              onChange={(event) => setSelectedType(event.target.value)}
-            >
-              <option value="">Show all</option>
-              <option value="delivery">Delivery</option>
-              <option value="pickup">Pickup</option>
-            </select>
-          }
-        />
+          <FilterItem
+            title="Type"
+            main={
+              <select
+                name="type"
+                id="type"
+                onChange={(event) => setSelectedType(event.target.value)}
+              >
+                <option value="">Show all</option>
+                <option value="delivery">Delivery</option>
+                <option value="pickup">Pickup</option>
+              </select>
+            }
+          />
 
-        <FilterItem
-          title="Dietary Restrictions"
-          main={
-            <select
-              name="dietaryRestrictions"
-              id="dietaryRestrictions"
-              onChange={(event) =>
-                setSelectedDietaryRestrictions(event.target.value)
-              }
-            >
-              <option value="">Show all</option>
-              <option value="Kosher">Kosher</option>
-              <option value="Halal">Halal</option>
-              <option value="Gluten Free">Gluten Free</option>
-              <option value="Lactose free">Lactose Free</option>
-              <option value="Vegan">Vegan</option>
-              <option value="Vegetarian">Vegetarian</option>
-            </select>
-          }
-        />
+          <FilterItem
+            title="Dietary Restrictions"
+            main={
+              <select
+                name="dietaryRestrictions"
+                id="dietaryRestrictions"
+                onChange={(event) =>
+                  setSelectedDietaryRestrictions(event.target.value)}
+              >
+                <option value="">Show all</option>
+                <option value="Kosher">Kosher</option>
+                <option value="Halal">Halal</option>
+                <option value="Gluten Free">Gluten Free</option>
+                <option value="Lactose free">Lactose Free</option>
+                <option value="Vegan">Vegan</option>
+                <option value="Vegetarian">Vegetarian</option>
+              </select>
+            }
+          />
 
-        <label htmlFor="open">Open now</label>
-        <input
-          type="checkbox"
-          id="open"
-          name="open"
-          onChange={() => setIsOpen(!isOpen)}
-        />
+          <label htmlFor="open">Open now</label>
+          <input
+            type="checkbox"
+            id="open"
+            name="open"
+            onChange={() => setIsOpen(!isOpen)}
+          />
+        </div>
+
+        <div className="searchBar">
+          <input type="text" placeholder="Enter restaurant name here..."
+            onChange={event => setSearch(event.target.value)} />
+        </div>
+
       </div>
+      
       <ul>
         {rests
+          .filter(filterRestaurantsByName)
           .filter(filterRestaurantsByPrice)
           .filter(filterRestaurantsByCuisine)
           .filter(filterRestaurantsByType)
@@ -180,8 +196,8 @@ const List = ({ rests }) => {
                     {rest.opening_hours.open_now ? (
                       <p className="open">Open</p>
                     ) : (
-                      <p className="closed">Closed</p>
-                    )}
+                        <p className="closed">Closed</p>
+                      )}
                   </div>
                 </div>
                 <p className="rating">
