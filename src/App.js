@@ -4,7 +4,6 @@ import { Switch, Route } from "react-router-dom";
 
 import Header from "./components/Header";
 import SearchFilterBar from "./components/SearchFilterBar";
-// import { List } from "./components/List";
 import { FilterComponent } from "./components/List/FilterComponent";
 import Restaurant from "./components/Restaurant";
 
