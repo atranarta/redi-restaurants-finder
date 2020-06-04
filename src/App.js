@@ -3,8 +3,8 @@ import axios from "axios";
 import { Switch, Route } from "react-router-dom";
 
 import Header from "./components/Header";
-import List from "./components/List";
 import Restaurant from "./components/Restaurant";
+import FilterComponent from "./components/List/FilterComponent";
 
 import "./index.scss";
 
@@ -30,7 +30,8 @@ function App() {
             <Restaurant rests={content} />
           </Route>
           <Route path="/">
-            <List rests={content} />
+            {/* <List rests={content} /> */}
+            <FilterComponent rests={content} />
           </Route>
         </Switch>
       </main>
