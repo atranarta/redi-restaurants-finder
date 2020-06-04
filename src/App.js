@@ -30,7 +30,6 @@ function App() {
             <Restaurant rests={content} />
           </Route>
           <Route path="/">
-            {/* <List rests={content} /> */}
             <FilterComponent rests={content} />
           </Route>
         </Switch>

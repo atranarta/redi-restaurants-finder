@@ -86,7 +86,6 @@ const FilterComponent = ({ rests }) => {
 
   return (
     <div>
-      {" "}
       <div className="filterSearchBox">
         <div className="filterBox">
           <FilterItem
