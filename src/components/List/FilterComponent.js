@@ -3,6 +3,8 @@ import List from "./index";
 
 import FilterItem from "./FilterItem";
 
+import "./Filters.scss";
+
 const FilterComponent = ({ rests }) => {
   const [selectedPrice, setSelectedPrice] = useState("");
   const [selectedCuisine, setselectedCuisine] = useState("");
@@ -164,26 +166,31 @@ const FilterComponent = ({ rests }) => {
             }
           />
 
-          <label htmlFor="open">Open now</label>
-          <input
-            type="checkbox"
-            id="open"
-            name="open"
-            checked={isOpen}
-            onChange={() => setIsOpen(!isOpen)}
-          />
+          <div className="isOpenCheckbox">
+            <label htmlFor="open">Open now:</label>
+            <input
+              type="checkbox"
+              id="open"
+              name="open"
+              checked={isOpen}
+              onChange={() => setIsOpen(!isOpen)}
+            />
+          </div>
         </div>
 
-        <div className="searchBar">
-          <input
-            type="text"
-            placeholder="Enter restaurant name here..."
-            onChange={(event) => setSearch(event.target.value)}
-            value={search}
-          />
+        <div className="searchResetWrap">
+          <div className="searchBar">
+            <input
+              type="text"
+              placeholder="Enter restaurant name here..."
+              onChange={(event) => setSearch(event.target.value)}
+              value={search}
+            />
+          </div>
+
+          <button onClick={removeFilters}>Remove all filters</button>
         </div>
 
-        <button onClick={removeFilters}>Remove all filters</button>
       </div>
       <List rests={filteredRests} />
     </div>

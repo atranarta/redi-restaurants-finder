@@ -6,13 +6,19 @@ import { useParams } from "react-router-dom";
 const Restaurant = ({ rests }) => {
   let { name } = useParams();
 
+  if (rests.length === 0) {
+    return (
+      <>Loading...</>
+    );
+  }
+
   const rest = rests.filter((item) => item.name === name)[0];
 
   return (
     <main>
       <div className="card">
+        <img src={rest.photos[0].links[1]} alt="restaurant" />
         <div className="textbox">
-          <img src={rest.photos[0].links[1]} alt="restaurant" />
           <h2>{rest.name}</h2>
           <p>{rest.formatted_address}</p>
           <p>{rest.social.phone}</p>

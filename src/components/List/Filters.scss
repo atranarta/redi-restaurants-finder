@@ -1,0 +1,121 @@
+.filterSearchBox {
+  font-size: 15px;
+
+  .filterBox {
+    display: flex;
+    justify-content: space-between;
+    height: 22px;
+    line-height: 20px;
+    margin-bottom: 20px;
+
+    .filterItem {
+      display: flex;
+
+      p,
+      label {
+        display: flex;
+        margin-right: 5px;
+      }
+
+      select {
+        border: 1px solid #d2d2d2;
+        outline: none;
+        cursor: pointer;
+        border-radius: 2px;
+        background: #fff;
+        padding: 2px 7px;
+        box-sizing: border-box;
+        height: 22px;
+
+        &:hover {
+          border-color: #7e7e7e;
+        }
+      }
+    }
+  }
+
+  .isOpenCheckbox {
+    display: flex;
+    height: 20px;
+    line-height: 20px;
+    margin-bottom: 20px;
+
+    label {
+      margin-right: 5px;
+    }
+
+    input[type=checkbox] {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      position: relative;
+      outline: none;
+
+      &::before {
+        content: "";
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        border: 1px solid #d2d2d2;
+        top: 0;
+        left: 0;
+        background: #fff;
+        border-radius: 2px;
+      }
+
+      &:checked {
+        &::before {
+          content: "";
+          width: 20px;
+          height: 20px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          background-color: #fff;
+          background-image: url(../../assets/images/check.svg);
+          border-color:#7e7e7e;
+        }
+      }
+    }
+  }
+
+  .searchResetWrap {
+    display: flex;
+    justify-content: space-between;
+
+    .searchBar {
+      display: flex;
+      width: 50%;
+
+      input {
+        height: 30px;
+        padding: 7px 10px;
+        box-sizing: border-box;
+        border: 1px solid #d2d2d2;
+        border-radius: 2px;
+        display: inline-block;
+        flex: 1;
+
+        &:hover,
+        &:active {
+          border-color: #7e7e7e;
+        }
+      }
+    }
+
+    button {
+      border: 1px solid #d2d2d2;
+      border-radius: 2px;
+      padding: 7px 10px;
+      cursor: pointer;
+      background-color: #fff;
+
+      &:hover {
+        background-color: #d2d2d2;
+        border-color: #7e7e7e;
+        transition: background-color 0.3s ease-in-out;
+      }
+    }
+  }
+}

@@ -46,15 +46,15 @@ const List = ({ rests }) => {
 
 const getRatingColor = (rating) => {
   if (rating <= 2.3) {
-    return `#8B0000`;
+    return `#d34129`;
   } else if (rating <= 2.8) {
-    return `#FF6347`;
+    return `#e4652d`;
   } else if (rating <= 3.6) {
-    return `#FFA500`;
+    return `#f29946`;
   } else if (rating <= 4.2) {
-    return `#FFD700`;
+    return `#feee66`;
   } else {
-    return `#00FF7F`;
+    return `#478b28`;
   }
 };
 

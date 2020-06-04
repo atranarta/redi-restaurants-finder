@@ -2,7 +2,6 @@
 
 ul {
   padding: 40px;
- 
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px 20px;
@@ -16,16 +15,17 @@ ul {
   padding: 10px;
   cursor: pointer;
   border-radius: 3px;
-  transition: background-color 0.5s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out;
   display: flex;
 
   &:hover {
     background-color: rgba(#ffffff, 0.3);
-    box-shadow: 1px 2px 20px darken(#4e8080, 10);
+    box-shadow: 1px 2px 20px darken(#ffffff, 30);
   }
 
   p {
     font-size: 14px;
+    color: #131313;
 
     @include _970 {
       font-size: 12px;
