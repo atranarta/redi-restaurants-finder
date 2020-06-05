@@ -10,11 +10,10 @@
   box-shadow: 1px 2px 20px darken(#ffffff, 30);
 
   .textbox {
+    color: #131313;
 
     h2 {
       font-size: 24px;
-      font-weight: 300;
-      color: #131313;
       margin-bottom: 15px;
 
       @include _970 {
@@ -28,11 +27,18 @@
       @include _450 {
         font-size: 14px;
       }
+
+      span {
+        color: #949494;
+        text-transform: lowercase;
+        font-size: 20px;
+        font-weight: normal;
+      }
     }
 
     p {
       font-size: 14px;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
 
       @include _970 {
         font-size: 12px;
@@ -46,23 +52,22 @@
         font-size: 11px;
       }
 
-      &.isOpen {
-        margin-top: 10px;
-
-        span {
-          letter-spacing: 1px;
-          font-weight: bold;
-
-          &.open {
-            color: darken(#2f4f4f, 15);
-          }
-
-          &.closed {
-            color: darken(#942b2b, 15);
-          }
-        }
+      span {
+        color: #949494;
+        text-transform: lowercase;
       }
     }
+
+    .rating {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .address {
+      margin-bottom: 30px;
+      font-weight: bold;
+    }
+
   }
 
   img {
@@ -87,4 +92,5 @@
       height: 70px;
     }
   }
+
 }

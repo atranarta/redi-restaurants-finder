@@ -19,18 +19,16 @@ const Restaurant = ({ rests }) => {
       <div className="RestaurantCard">
         <img src={rest.photos[0].links[1]} alt="restaurant" />
         <div className="textbox">
-          <h2>{rest.name}</h2>
-          <p>{rest.formatted_address}</p>
+          <h2>{rest.name} • <span>{"$".repeat(rest.price_level)}</span></h2>
+          <p className="rating">{rest.rating} <span>({rest.user_ratings_total})</span></p>
+          <p className="address">{rest.formatted_address}</p>
           <p style={{ textTransform: "capitalize" }}>
-            Cuisine: {rest.cuisine}, {rest.dietaryRestrictions}
+            Cuisine: {rest.cuisine}, <span>({rest.dietaryRestrictions} is available)</span>
           </p>
-          <p>Rating: {rest.rating}</p>
-          <p>
-            Open from {rest.opening_hours.hours.open} to{" "}
-            {rest.opening_hours.hours.open}
+          <p className="openTime">
+            Open from {rest.opening_hours.hours.open} to {rest.opening_hours.hours.close}
           </p>
-          <p>{rest.social.phone}</p>
-          <p>{rest.social.email}</p>
+          <p className="contactForm"><span>{rest.social.phone}, {rest.social.email}</span></p>
         </div>
       </div>
     </>
