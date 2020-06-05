@@ -1,5 +1,8 @@
 @import "./media_mixin.scss";
 
+$body-background: #2b2b2b;
+$main_section-background: #eee;
+
 * {
   margin: 0;
   padding: 0;
@@ -9,7 +12,12 @@
 }
 
 body {
-  background: #2b2b2b;
+  background: $body-background;
+  background-image: url(./assets/images/Yellow-and-green-food-background-from-dry-pasta.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .wrapper {
@@ -17,11 +25,11 @@ body {
   max-width: 960px;
   width: 80%;
   height: 100%;
-  box-shadow: 1px 2px 60px darken(#2b2b2b, 50);
+  box-shadow: 1px 2px 60px darken($body-background, 50);
 }
 
 main {
-  background: #eee;
+  background: $main_section-background;
   padding: 20px 40px;
 
   @include _800 {
