@@ -1,3 +1,8 @@
+$border-color: #d2d2d2;
+$border-color-hover: #7e7e7e;
+$input-background: #FFF;
+
+
 .filterSearchBox {
   font-size: 15px;
 
@@ -8,27 +13,36 @@
     line-height: 20px;
     margin-bottom: 20px;
 
+    p,
+    label {
+      display: flex;
+      margin-right: 5px;
+    }
+
     .filterItem {
       display: flex;
+      cursor: pointer;
 
-      p,
-      label {
-        display: flex;
-        margin-right: 5px;
+      &:hover {
+
+        select,
+        input {
+          border-color: $border-color-hover;
+        }
       }
 
       select {
-        border: 1px solid #d2d2d2;
+        border: 1px solid $border-color;
         outline: none;
         cursor: pointer;
         border-radius: 2px;
-        background: #fff;
+        background: $input-background;
         padding: 2px 7px;
         box-sizing: border-box;
         height: 22px;
 
         &:hover {
-          border-color: #7e7e7e;
+          border-color: $border-color-hover;
         }
       }
     }
@@ -40,82 +54,97 @@
     line-height: 20px;
     margin-bottom: 20px;
 
-    label {
-      margin-right: 5px;
-    }
-
-    input[type=checkbox] {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      cursor: pointer;
-      position: relative;
-      outline: none;
-
+    &:hover input[type=checkbox] {
       &::before {
         content: "";
         width: 20px;
         height: 20px;
         position: absolute;
-        border: 1px solid #d2d2d2;
+        border: 1px solid $border-color-hover;
         top: 0;
         left: 0;
-        background: #fff;
+        background: $input-background;
         border-radius: 2px;
       }
+    }
 
-      &:checked {
+    label {
+      margin-right: 5px;
+      cursor: pointer;
+    }
+
+      input[type=checkbox] {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        position: relative;
+        outline: none;
+
         &::before {
           content: "";
           width: 20px;
           height: 20px;
           position: absolute;
+          border: 1px solid $border-color;
           top: 0;
           left: 0;
-          background-color: #fff;
-          background-image: url(../../assets/images/check.svg);
-          border-color:#7e7e7e;
+          background: $input-background;
+          border-radius: 2px;
+        }
+
+        &:checked {
+          &::before {
+            content: "";
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: $input-background;
+            background-image: url(../../assets/images/check.svg);
+            border-color: $border-color-hover;
+          }
         }
       }
     }
-  }
 
-  .searchResetWrap {
-    display: flex;
-    justify-content: space-between;
-
-    .searchBar {
+    .searchResetWrap {
       display: flex;
-      width: 50%;
+      justify-content: space-between;
 
-      input {
-        height: 30px;
-        padding: 7px 10px;
-        box-sizing: border-box;
-        border: 1px solid #d2d2d2;
+      .searchBar {
+        display: flex;
+        width: 50%;
+
+        input {
+          height: 30px;
+          padding: 7px 10px;
+          box-sizing: border-box;
+          border: 1px solid $border-color;
+          border-radius: 2px;
+          display: inline-block;
+          flex: 1;
+
+          &:hover,
+          &:focus {
+            border-color: $border-color-hover;
+          }
+        }
+      }
+
+      button {
+        border: 1px solid $border-color;
         border-radius: 2px;
-        display: inline-block;
-        flex: 1;
+        padding: 7px 10px;
+        cursor: pointer;
+        background-color: $input-background;
 
-        &:hover,
-        &:active {
-          border-color: #7e7e7e;
+        &:hover {
+          background-color: $border-color;
+          border-color: $border-color-hover;
+          transition: background-color 0.3s ease-in-out;
         }
       }
     }
-
-    button {
-      border: 1px solid #d2d2d2;
-      border-radius: 2px;
-      padding: 7px 10px;
-      cursor: pointer;
-      background-color: #fff;
-
-      &:hover {
-        background-color: #d2d2d2;
-        border-color: #7e7e7e;
-        transition: background-color 0.3s ease-in-out;
-      }
-    }
   }
-}

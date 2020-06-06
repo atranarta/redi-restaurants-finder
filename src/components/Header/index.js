@@ -6,10 +6,12 @@ import "./Header.scss";
 
 const Header = () => (
   <header>
+    <div className="title-wrapper">
     <Link to="/">
       <img className="home-icon" src={homeIcon} alt="home icon" />
     </Link>
     <h1>Find your perfect place to eat</h1>
+    </div>
   </header>
 );
 

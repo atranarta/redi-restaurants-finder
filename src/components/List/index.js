@@ -54,7 +54,7 @@ const getRatingColor = (rating) => {
   } else if (rating <= 4.2) {
     return `#feee66`;
   } else {
-    return `#478b28`;
+    return `#81bd65`;
   }
 };
 
