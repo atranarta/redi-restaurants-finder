@@ -59,8 +59,6 @@ const getRatingColor = (rating) => {
   }
 };
 
-// export default List;
-
 function mapReduxStateToProps(reduxState) {
   return { filteredRestaurants: reduxState.filteredRestaurants };
 }

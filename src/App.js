@@ -1,34 +1,13 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
+import React from "react";
 import { Switch, Route } from "react-router-dom";
 
 import Header from "./components/Header";
 import Restaurant from "./components/Restaurant";
-import FilterComponent from "./components/List/FilterComponent";
-
-import { actionTypes } from "./redux-store/actionTypes";
+import Restaurants from "./components/Restaurants";
 
 import "./index.scss";
 
-const apiLink = "https://redi-final-restaurants.herokuapp.com/restaurants";
-
-const App = ({ dispatch, restaurants }) => {
-  useEffect(() => {
-    async function fetchData() {
-      dispatch({ type: actionTypes.startLoading, payload: { error: false } });
-      try {
-        const response = await fetch(apiLink);
-        const data = await response.json();
-        const restaurants = data.results;
-        dispatch({ type: actionTypes.loadSuccess, payload: { restaurants } });
-      } catch (error) {
-        dispatch({ type: actionTypes.loadError, payload: { error } });
-      }
-    }
-
-    fetchData();
-  }, [dispatch]);
-
+const App = () => {
   return (
     <div className="wrapper">
       <Header />
@@ -38,7 +17,7 @@ const App = ({ dispatch, restaurants }) => {
             <Restaurant />
           </Route>
           <Route path="/">
-            <FilterComponent />
+            <Restaurants />
           </Route>
         </Switch>
       </main>
@@ -46,7 +25,4 @@ const App = ({ dispatch, restaurants }) => {
   );
 };
 
-function mapStateToProps(reduxState) {
-  return { restaurants: reduxState.restaurants };
-}
-export default connect(mapStateToProps)(App);
+export default App;

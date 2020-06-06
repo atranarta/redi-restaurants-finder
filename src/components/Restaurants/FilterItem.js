@@ -1,14 +1,12 @@
 import React from "react";
 
-const FilterItem = props => {
+const FilterItem = (props) => {
   return (
     <div className="filterItem">
       <p className="title">{props.title}:</p>
-      <>
-        {props.main}
-      </>
+      <>{props.main}</>
     </div>
-  )
+  );
 };
 
 export default FilterItem;
