@@ -6,8 +6,9 @@ import List from "./index";
 import FilterItem from "./FilterItem";
 
 import "./Filters.scss";
+import { actionTypes } from "../../redux-store/actionTypes";
 
-const FilterComponent = ({ restaurants }) => {
+const FilterComponent = ({ dispatch, restaurants }) => {
   const [selectedPrice, setSelectedPrice] = useState("");
   const [selectedCuisine, setselectedCuisine] = useState("");
   const [selectedType, setSelectedType] = useState("");
@@ -80,13 +81,18 @@ const FilterComponent = ({ restaurants }) => {
     setSearch("");
   };
 
-  const filteredRests = restaurants
+  const filteredRestaurants = restaurants
     .filter(filterRestaurantsByName)
     .filter(filterRestaurantsByPrice)
     .filter(filterRestaurantsByCuisine)
     .filter(filterRestaurantsByType)
     .filter(filterRestaurantsByDietaryRestrictions)
     .filter(filterRestaurantsByOpen);
+
+  dispatch({
+    type: actionTypes.filterAction,
+    payload: { filteredRestaurants },
+  });
 
   return (
     <div>
@@ -193,7 +199,8 @@ const FilterComponent = ({ restaurants }) => {
           <button onClick={removeFilters}>Remove all filters</button>
         </div>
       </div>
-      <List rests={filteredRests} />
+      {/* <List rests={filteredRests} /> */}
+      <List />
     </div>
   );
 };

@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 import "./List.scss";
 
-const List = ({ rests }) => {
+const List = ({ filteredRestaurants }) => {
   return (
     <>
       <ul>
-        {rests.map((rest) => (
+        {filteredRestaurants.map((rest) => (
           <Link
             to={`/restaurants/${rest.name}`}
             style={{ textDecoration: "none" }}
@@ -58,4 +59,10 @@ const getRatingColor = (rating) => {
   }
 };
 
-export default List;
+// export default List;
+
+function mapReduxStateToProps(reduxState) {
+  return { filteredRestaurants: reduxState.filteredRestaurants };
+}
+
+export default connect(mapReduxStateToProps)(List);

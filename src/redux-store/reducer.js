@@ -2,6 +2,7 @@ import { actionTypes } from "./actionTypes";
 
 const initialState = {
   restaurants: [],
+  filteredRestaurants: [],
   loading: false,
 };
 
@@ -23,6 +24,15 @@ function restaurantsReducer(state = initialState, action) {
         loading: false,
       };
       // console.log("RESTAURANTS");
+      // console.log(newState);
+      return newState;
+    }
+    case actionTypes.filterAction: {
+      const newState = {
+        ...state,
+        filteredRestaurants: action.payload.filteredRestaurants,
+      };
+      // console.log("FILTERED");
       // console.log(newState);
       return newState;
     }
