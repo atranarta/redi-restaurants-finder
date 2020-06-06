@@ -1,18 +1,17 @@
 import React from "react";
+import { connect } from "react-redux";
 
 import "./Restaurant.scss";
 import { useParams } from "react-router-dom";
 
-const Restaurant = ({ rests }) => {
+const Restaurant = ({ restaurants }) => {
   let { name } = useParams();
 
-  if (rests.length === 0) {
-    return (
-      <>Loading...</>
-    );
+  if (restaurants.length === 0) {
+    return <>Loading...</>;
   }
 
-  const rest = rests.filter((item) => item.name === name)[0];
+  const rest = restaurants.filter((item) => item.name === name)[0];
 
   return (
     <main>
@@ -37,4 +36,8 @@ const Restaurant = ({ rests }) => {
   );
 };
 
-export default Restaurant;
+function mapReduxStateToProps(reduxState) {
+  return { restaurants: reduxState.restaurants };
+}
+
+export default connect(mapReduxStateToProps)(Restaurant);

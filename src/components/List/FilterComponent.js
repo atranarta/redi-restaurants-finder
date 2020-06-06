@@ -1,11 +1,13 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+
 import List from "./index";
 
 import FilterItem from "./FilterItem";
 
 import "./Filters.scss";
 
-const FilterComponent = ({ rests }) => {
+const FilterComponent = ({ restaurants }) => {
   const [selectedPrice, setSelectedPrice] = useState("");
   const [selectedCuisine, setselectedCuisine] = useState("");
   const [selectedType, setSelectedType] = useState("");
@@ -78,7 +80,7 @@ const FilterComponent = ({ rests }) => {
     setSearch("");
   };
 
-  const filteredRests = rests
+  const filteredRests = restaurants
     .filter(filterRestaurantsByName)
     .filter(filterRestaurantsByPrice)
     .filter(filterRestaurantsByCuisine)
@@ -190,11 +192,16 @@ const FilterComponent = ({ rests }) => {
 
           <button onClick={removeFilters}>Remove all filters</button>
         </div>
-
       </div>
       <List rests={filteredRests} />
     </div>
   );
 };
 
-export default FilterComponent;
+function mapReduxStateToProps(reduxState) {
+  // console.log("reduxState");
+  // console.log(reduxState);
+  return { restaurants: reduxState.restaurants };
+}
+
+export default connect(mapReduxStateToProps)(FilterComponent);

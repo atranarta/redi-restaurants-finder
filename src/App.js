@@ -1,25 +1,33 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
 import { Switch, Route } from "react-router-dom";
 
 import Header from "./components/Header";
 import Restaurant from "./components/Restaurant";
 import FilterComponent from "./components/List/FilterComponent";
 
+import { actionTypes } from "./redux-store/actionTypes";
+
 import "./index.scss";
 
 const apiLink = "https://redi-final-restaurants.herokuapp.com/restaurants";
 
-function App() {
-  const [content, setContent] = useState([]);
+const App = ({ dispatch, restaurants }) => {
   useEffect(() => {
-    axios
-      .get(apiLink)
-      .then((res) => {
-        setContent(res.data.results);
-      })
-      .catch((error) => console.log(error));
-  }, []);
+    async function fetchData() {
+      dispatch({ type: actionTypes.startLoading, payload: { error: false } });
+      try {
+        const response = await fetch(apiLink);
+        const data = await response.json();
+        const restaurants = data.results;
+        dispatch({ type: actionTypes.loadSuccess, payload: { restaurants } });
+      } catch (error) {
+        dispatch({ type: actionTypes.loadError, payload: { error } });
+      }
+    }
+
+    fetchData();
+  }, [dispatch]);
 
   return (
     <div className="wrapper">
@@ -27,15 +35,18 @@ function App() {
       <main>
         <Switch>
           <Route path="/restaurants/:name">
-            <Restaurant rests={content} />
+            <Restaurant />
           </Route>
           <Route path="/">
-            <FilterComponent rests={content} />
+            <FilterComponent />
           </Route>
         </Switch>
       </main>
     </div>
   );
-}
+};
 
-export default App;
+function mapStateToProps(reduxState) {
+  return { restaurants: reduxState.restaurants };
+}
+export default connect(mapStateToProps)(App);
