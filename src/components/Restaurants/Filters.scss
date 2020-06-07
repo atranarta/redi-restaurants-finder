@@ -180,38 +180,45 @@ $input-background: #FFF;
       display: flex;
       width: 50%;
 
-      input {
-        height: 30px;
-        padding: 7px 10px;
-        box-sizing: border-box;
-        border: 1px solid $border-color;
-        border-radius: 2px;
-        display: inline-block;
-        flex: 1;
-
-        @include _420 {
-          margin-bottom: 10px;
-        }
-
-        &:hover,
-        &:focus {
-          border-color: $border-color-hover;
-        }
+      @include _420 {
+        display: block;
+        width: 100%;
       }
-    }
 
-    button {
+    input {
+      height: 30px;
+      padding: 7px 10px;
+      box-sizing: border-box;
       border: 1px solid $border-color;
       border-radius: 2px;
-      padding: 7px 10px;
-      cursor: pointer;
-      background-color: $input-background;
+      display: inline-block;
+      flex: 1;
 
-      &:hover {
-        background-color: $border-color;
+      @include _420 {
+        margin-bottom: 10px;
+        display: block;
+        width: 100%;
+      }
+
+      &:hover,
+      &:focus {
         border-color: $border-color-hover;
-        transition: background-color 0.3s ease-in-out;
       }
     }
   }
+
+  button {
+    border: 1px solid $border-color;
+    border-radius: 2px;
+    padding: 7px 10px;
+    cursor: pointer;
+    background-color: $input-background;
+
+    &:hover {
+      background-color: $border-color;
+      border-color: $border-color-hover;
+      transition: background-color 0.3s ease-in-out;
+    }
+  }
+}
 }
