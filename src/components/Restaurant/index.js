@@ -26,11 +26,11 @@ const Restaurant = ({ restaurants }) => {
           </p>
           <p className="address">{rest.formatted_address}</p>
           <p style={{ textTransform: "capitalize" }}>
-            Cuisine: {rest.cuisine},{" "}
+            Cuisine: {rest.cuisine},
             <span>({rest.dietaryRestrictions} is available)</span>
           </p>
           <p className="openTime">
-            Open from {rest.opening_hours.hours.open} to{" "}
+            Open from {rest.opening_hours.hours.open} to
             {rest.opening_hours.hours.close}
           </p>
           <p className="contactForm">

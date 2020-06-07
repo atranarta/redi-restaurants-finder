@@ -15,7 +15,6 @@ const Filters = ({ dispatch, restaurants }) => {
     setSelectedDietaryRestrictions,
   ] = useState("");
   const [isOpen, setIsOpen] = useState(false);
-
   const [search, setSearch] = useState("");
 
   const filterRestaurantsByPrice = (rest) => {
