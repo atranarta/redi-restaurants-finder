@@ -1,68 +1,35 @@
+# Restaurants Finder
+
+This is the final project for our React JS course at [ReDi School (Berlin)](https://www.redi-school.org/berlin).  
+We have deployed it here: [Restaurants Finder](https://priceless-galileo-680738.netlify.app).
+
+Our app helps to find and filter restaurants based on different requests.  
+For example, to find a middle-range Italian restaurant that is open now and also serves lactose-free dishes.
+
+Here are the main features we've developed:
+
+- **Design** from scratch using SCSS.
+- Fetching data on restaurants from **API** and rendering it on the home page.
+- **Filtering**. We have developed a dropdown panel for filtering of the restaurants based on different categories (cuisine, rating, price level, open? delivery? etc).
+- **Search Bar**. When typed in, it filters the listing by name.
+- **Dynamic Routing**. When clicked on a Restaurant, a new page with restaurant details opens, the url is updated, accordingly.
+- **Redux** store to pass the data between the components.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+- Clone this repo to your local machine using: `https://github.com/atranarta/redi-restaurants-finder.git`
+- Run the project in the development mode using: `yarn start`
+- Open http://localhost:3000 to view it in the browser. The page will automatically reload if you make changes to the code.
 
-### `yarn start`
+## Team
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Tatyana Rabievska ([atranarta](https://github.com/atranarta))
+- Iryna Gnativ ([gvirinko](https://github.com/gvirinko))
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<!-- | <a href="https://github.com/atranarta" target="_blank">**Tatyana Rabievska**</a> | <a href="https://github.com/gvirinko" target="_blank">**Iryna Gnativ**</a> |
+| :---: |:---:|
 
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+| <img src="https://avatars0.githubusercontent.com/u/13675565?s=460&u=4050b778f434e36a8be41ae53bcf3230202ac032&v=4" alt="alt text" width="200"> | <img src="https://avatars0.githubusercontent.com/u/50527779?s=460&u=2a6b4bf5bf1d83bf2ce7413a12b5d7fb262e5a25&v=4" alt="alt text" width="100"> |
+ -->
