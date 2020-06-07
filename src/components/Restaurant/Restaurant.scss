@@ -17,15 +17,15 @@
       margin-bottom: 15px;
 
       @include _970 {
-        font-size: 16px;
+        font-size: 22px;
       }
 
       @include _800 {
-        font-size: 18px;
+        font-size: 20px;
       }
 
       @include _450 {
-        font-size: 14px;
+        font-size: 18px;
       }
 
       span {
@@ -37,19 +37,27 @@
     }
 
     p {
-      font-size: 14px;
+      font-size: 16px;
       margin-bottom: 15px;
 
       @include _970 {
-        font-size: 12px;
+        font-size: 14px;
+        margin-bottom: 13px;
       }
 
       @include _800 {
+        font-size: 16px;
+        margin-bottom: 14px;
+      }
+
+      @include _600 {
         font-size: 14px;
+        margin-bottom: 13px;
       }
 
       @include _450 {
-        font-size: 11px;
+        font-size: 13px;
+        margin-bottom: 11px;
       }
 
       span {
@@ -61,6 +69,22 @@
     .rating {
       font-size: 18px;
       font-weight: bold;
+
+      @include _970 {
+        font-size: 16px;
+      }
+
+      @include _800 {
+        font-size: 18px;
+      }
+
+      @include _600 {
+        font-size: 16px;
+      }
+
+      @include _450 {
+        font-size: 14px;
+      }
     }
 
     .address {
@@ -77,20 +101,14 @@
     object-fit: cover;
     margin-right: 20px;
 
-    @include _970 {
-      width: 80px;
-      height: 80px;
+    @include _600 {
+      width: 150px;
+      height: 150px;
     }
 
-    @include _800 {
-      width: 90px;
-      height: 90px;
-    }
-
-    @include _450 {
-      width: 70px;
-      height: 70px;
+    @include _550 {
+      width: 100px;
+      height: 100px;
     }
   }
-
 }

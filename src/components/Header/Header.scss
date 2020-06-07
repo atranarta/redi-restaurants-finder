@@ -11,54 +11,126 @@ header {
   background-size: 1120px;
 
   @include _970 {
-    height: 300px;
+    height: 270px;
     background-position-x: -140px;
   }
 
   @include _870 {
-    height: 280px;
-    background-position: -200px -250px;
+    height: 250px;
   }
 
   @include _800 {
-    height: 250px;
-    background-position: -195px -340px;
+    height: 230px;
+    background-size: 1000px;
+  }
+
+  @include _650 {
+    height: 210px;
+    background-size: 850px;
+    background-position: -150px -150px;
+  }
+
+  @include _600 {
+    height: 200px;
+    background-size: 900px;
+  }
+
+  @include _450 {
+    height: 180px;
+    background-size: 800px;
+  }
+
+  @include _420 {
+    height: 150px;
+    background-size: 700px;
   }
 
   .title-wrapper {
-    position: relative;
     padding: 40px 0px;
 
-    h1 {
-      color: $header-font-color;
-      font-weight: 300;
-      font-style: italic;
-      font-size: 36px;
-      text-align: right;
+    .title-box {
       padding: 5px 40px;
       background-color: rgba(#FFF, 0.5);
+      position: relative;
 
-      @include _970 {
-        font-size: 32px;
-      }
-
-      @include _870 {
-        font-size: 30px;
-      }
-
-      @include _800 {
-        font-size: 28px;
-        padding: 60px 30px 60px 200px;
+      @include _600 {
+        padding: 5px 20px;
       }
     }
+  }
 
-    .home-icon {
-      filter: invert(2%) sepia(18%) saturate(5%) hue-rotate(314deg) brightness(90%) contrast(88%);
-      position: absolute;
-      top: 50px;
-      left: 40px;
-      width: 36px;
-      cursor: pointer;
+  h1 {
+    color: $header-font-color;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 36px;
+    text-align: right;
+    margin-left: 40px;
+
+    @include _970 {
+      font-size: 32px;
+    }
+
+    @include _870 {
+      font-size: 30px;
+    }
+
+    @include _800 {
+      font-size: 28px;
+    }
+
+    @include _650 {
+      font-size: 26px;
+    }
+
+    @include _600 {
+      font-size: 24px;
+    }
+
+    @include _450 {
+      font-size: 22px;
+    }
+
+    @include _420 {
+      font-size: 20px;
+    }
+  }
+
+  .home-icon {
+    filter: invert(2%) sepia(18%) saturate(5%) hue-rotate(314deg) brightness(90%) contrast(88%);
+    position: absolute;
+    top: 8px;
+    left: 33px;
+    width: 36px;
+    cursor: pointer;
+
+    @include _970 {
+      width: 32px;
+    }
+
+    @include _870 {
+      width: 30px;
+    }
+
+    @include _800 {
+      width: 28px;
+    }
+
+    @include _650 {
+      width: 26px;
+    }
+
+    @include _600 {
+      width: 24px;
+      left: 13px;
+    }
+
+    @include _450 {
+      width: 22px;
+    }
+
+    @include _420 {
+      width: 20px;
     }
   }
 }
