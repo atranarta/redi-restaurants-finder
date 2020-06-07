@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 
+import BackButton from "./BackButton";
 import "./Restaurant.scss";
 
 const Restaurant = ({ restaurants }) => {
@@ -11,29 +12,36 @@ const Restaurant = ({ restaurants }) => {
     return <>Please return to Home page...</>;
   }
 
-  const rest = restaurants.filter((item) => item.name === name)[0];
+  const restaurant = restaurants.filter((item) => item.name === name)[0];
+
+  // let history = useHistory();
+  // const history = useHistory();
 
   return (
     <>
+      <BackButton />
       <div className="RestaurantCard">
-        <img src={rest.photos[0].links[1]} alt="restaurant" />
+        <img src={restaurant.photos[0].links[1]} alt="restaurant" />
         <div className="textbox">
           <h2>
-            {rest.name} • <span>{"$".repeat(rest.price_level)}</span>
+            {restaurant.name} •{" "}
+            <span>{"$".repeat(restaurant.price_level)}</span>
           </h2>
           <p className="rating">
-            {rest.rating} <span>({rest.user_ratings_total})</span>
+            {restaurant.rating} <span>({restaurant.user_ratings_total})</span>
           </p>
-          <p className="address">{rest.formatted_address}</p>
+          <p className="address">{restaurant.formatted_address}</p>
           <p style={{ textTransform: "capitalize" }}>
-            Cuisine: {rest.cuisine}, <span>({rest.dietaryRestrictions} is available)</span>
+            Cuisine: {restaurant.cuisine},{" "}
+            <span>({restaurant.dietaryRestrictions} is available)</span>
           </p>
           <p className="openTime">
-            Open from {rest.opening_hours.hours.open} to {rest.opening_hours.hours.close}
+            Open from {restaurant.opening_hours.hours.open} to{" "}
+            {restaurant.opening_hours.hours.close}
           </p>
           <p className="contactForm">
             <span>
-              {rest.social.phone}, {rest.social.email}
+              {restaurant.social.phone}, {restaurant.social.email}
             </span>
           </p>
         </div>
