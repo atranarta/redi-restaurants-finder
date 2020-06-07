@@ -1,9 +1,9 @@
 # Restaurants Finder
 
-This is the final project for our React JS course at [ReDi School (Berlin)](https://www.redi-school.org/berlin).  
+This is the final project for our React JS course at [ReDi School (Berlin)](https://www.redi-school.org/berlin).
 We have deployed it here: [Restaurants Finder](https://priceless-galileo-680738.netlify.app).
 
-Our app helps to find and filter restaurants based on different requests.  
+Our app helps to find and filter restaurants based on different requests.
 For example, to find a middle-range Italian restaurant that is open now and also serves lactose-free dishes.
 
 Here are the main features we've developed:
@@ -25,7 +25,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Team
 
-- Tatyana Rabievska ([atranarta](https://github.com/atranarta))
+- Tetiana Rabiievska ([atranarta](https://github.com/atranarta))
 - Iryna Gnativ ([gvirinko](https://github.com/gvirinko))
 
 <!-- | <a href="https://github.com/atranarta" target="_blank">**Tatyana Rabievska**</a> | <a href="https://github.com/gvirinko" target="_blank">**Iryna Gnativ**</a> |
