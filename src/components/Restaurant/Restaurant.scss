@@ -91,7 +91,6 @@
       margin-bottom: 30px;
       font-weight: bold;
     }
-
   }
 
   img {
@@ -110,5 +109,24 @@
       width: 100px;
       height: 100px;
     }
+  }
+}
+
+$border-color: #d2d2d2;
+$border-color-hover: #7e7e7e;
+$input-background: #fff;
+
+.button-back {
+  border: 1px solid $border-color;
+  border-radius: 2px;
+  padding: 7px 10px;
+  cursor: pointer;
+  background-color: $input-background;
+  margin-bottom: 10px;
+
+  &:hover {
+    background-color: $border-color;
+    border-color: $border-color-hover;
+    transition: background-color 0.3s ease-in-out;
   }
 }
