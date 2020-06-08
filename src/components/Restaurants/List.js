@@ -1,28 +1,34 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import eatingBeans from "../../assets/images/Bean Eater-1s-84px.svg";
 
 import "./List.scss";
 
-const List = ({ filteredRestaurants }) => {
+const List = ({ filteredRestaurants, loading }) => {
   return (
     <>
+      {loading ? (
+        <div className="preloader-wrapper">
+          <img src={eatingBeans} className="preloader" alt="preloader"></img>
+        </div>
+      ) : null}
       <ul>
-        {filteredRestaurants.map((rest) => (
+        {filteredRestaurants.map((restaurant) => (
           <Link
-            to={`/restaurants/${rest.name}`}
+            to={`/restaurants/${restaurant.name}`}
             style={{ textDecoration: "none" }}
-            key={rest.id}
+            key={restaurant.id}
           >
             <li className="ListItem">
-              <img src={rest.photos[0].links[1]} alt="restaurant" />
+              <img src={restaurant.photos[0].links[1]} alt="restaurant" />
               <div className="textbox">
-                <h2>{rest.name}</h2>
-                <p className="address">{rest.formatted_address}</p>
-                <p className="price">{"$".repeat(rest.price_level)}</p>
+                <h2>{restaurant.name}</h2>
+                <p className="address">{restaurant.formatted_address}</p>
+                <p className="price">{"$".repeat(restaurant.price_level)}</p>
 
                 <div className="isOpen">
-                  {rest.opening_hours.open_now ? (
+                  {restaurant.opening_hours.open_now ? (
                     <p className="open">Open</p>
                   ) : (
                     <p className="closed">Closed</p>
@@ -32,9 +38,9 @@ const List = ({ filteredRestaurants }) => {
               <p className="rating">
                 <span
                   className="rating-number"
-                  style={{ backgroundColor: getRatingColor(rest.rating) }}
+                  style={{ backgroundColor: getRatingColor(restaurant.rating) }}
                 >
-                  {rest.rating}
+                  {restaurant.rating}
                 </span>
               </p>
             </li>
@@ -60,7 +66,10 @@ const getRatingColor = (rating) => {
 };
 
 function mapReduxStateToProps(reduxState) {
-  return { filteredRestaurants: reduxState.filteredRestaurants };
+  return {
+    filteredRestaurants: reduxState.filteredRestaurants,
+    loading: reduxState.loading,
+  };
 }
 
 export default connect(mapReduxStateToProps)(List);

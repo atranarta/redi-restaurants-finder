@@ -13,10 +13,6 @@ const Restaurant = ({ restaurants }) => {
   }
 
   const restaurant = restaurants.filter((item) => item.name === name)[0];
-
-  // let history = useHistory();
-  // const history = useHistory();
-
   return (
     <>
       <BackButton />
