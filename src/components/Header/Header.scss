@@ -45,6 +45,11 @@ header {
     background-size: 700px;
   }
 
+  @include _370 {
+    height: 120px;
+    background-size: 600px;
+  }
+
   .title-wrapper {
     padding: 40px 0px;
 
@@ -93,6 +98,10 @@ header {
 
     @include _420 {
       font-size: 20px;
+    }
+
+    @include _370 {
+      font-size: 18px;
     }
   }
 
