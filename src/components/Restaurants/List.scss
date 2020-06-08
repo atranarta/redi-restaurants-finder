@@ -40,7 +40,6 @@ ul {
     @include _450 {
       font-size: 11px;
     }
-
   }
 
   .textbox {
@@ -121,4 +120,14 @@ ul {
       border-radius: 1px;
     }
   }
+}
+
+.preloader-wrapper {
+  margin-top: 50px;
+}
+
+.preloader {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }

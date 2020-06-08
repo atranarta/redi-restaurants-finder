@@ -1,12 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import eatingBeans from "../../assets/images/Bean Eater-1s-84px.svg";
 
 import "./List.scss";
 
-const List = ({ filteredRestaurants }) => {
+const List = ({ filteredRestaurants, loading }) => {
   return (
     <>
+      {loading ? (
+        <div className="preloader-wrapper">
+          <img src={eatingBeans} className="preloader" alt="preloader"></img>
+        </div>
+      ) : null}
       <ul>
         {filteredRestaurants.map((rest) => (
           <Link
@@ -60,7 +66,10 @@ const getRatingColor = (rating) => {
 };
 
 function mapReduxStateToProps(reduxState) {
-  return { filteredRestaurants: reduxState.filteredRestaurants };
+  return {
+    filteredRestaurants: reduxState.filteredRestaurants,
+    loading: reduxState.loading,
+  };
 }
 
 export default connect(mapReduxStateToProps)(List);
