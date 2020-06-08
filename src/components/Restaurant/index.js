@@ -12,7 +12,7 @@ const Restaurant = ({ restaurants }) => {
     return <>Please return to Home page...</>;
   }
 
-  const restaurant = restaurants.filter((item) => item.name === name)[0];
+  const restaurant = restaurants.find((item) => item.name === name);
   return (
     <>
       <BackButton />

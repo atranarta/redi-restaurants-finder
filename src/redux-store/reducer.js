@@ -4,10 +4,10 @@ const initialState = {
   restaurants: [],
   filteredRestaurants: [],
   loading: false,
+  filters: { cuisine: "" },
 };
 
 function restaurantsReducer(state = initialState, action) {
-
   switch (action.type) {
     case actionTypes.startLoading: {
       const newState = { ...state, loading: true };
@@ -30,6 +30,15 @@ function restaurantsReducer(state = initialState, action) {
 
       return newState;
     }
+    case actionTypes.setFilter: {
+      const newState = {
+        ...state,
+        filters: { ...state.filters, ...action.payload },
+      };
+
+      return newState;
+    }
+
     default:
       return state;
   }

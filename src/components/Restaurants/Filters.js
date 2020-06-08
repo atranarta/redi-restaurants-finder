@@ -6,9 +6,9 @@ import FilterItem from "./FilterItem";
 import "./Filters.scss";
 import { actionTypes } from "../../redux-store/actionTypes";
 
-const Filters = ({ dispatch, restaurants }) => {
+const Filters = ({ dispatch, restaurants, filters }) => {
   const [selectedPrice, setSelectedPrice] = useState("");
-  const [selectedCuisine, setselectedCuisine] = useState("");
+  // const [selectedCuisine, setselectedCuisine] = useState("");
   const [selectedType, setSelectedType] = useState("");
   const [
     selectedDietaryRestrictions,
@@ -16,6 +16,15 @@ const Filters = ({ dispatch, restaurants }) => {
   ] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
+
+  const handleCuisineChange = (event) => {
+    dispatch({
+      type: actionTypes.setFilter,
+      payload: { cuisine: event.target.value },
+    });
+
+    // setselectedCuisine(event.target.value);
+  };
 
   const filterRestaurantsByPrice = (rest) => {
     if (selectedPrice !== "" && typeof rest.price_level !== "undefined") {
@@ -26,8 +35,8 @@ const Filters = ({ dispatch, restaurants }) => {
   };
 
   const filterRestaurantsByCuisine = (rest) => {
-    if (selectedCuisine !== "") {
-      return rest.cuisine === selectedCuisine;
+    if (filters.cuisine !== "") {
+      return rest.cuisine === filters.cuisine;
     }
 
     return true;
@@ -71,7 +80,7 @@ const Filters = ({ dispatch, restaurants }) => {
 
   const removeFilters = () => {
     setSelectedPrice("");
-    setselectedCuisine("");
+    // setselectedCuisine("");
     setSelectedType("");
     setSelectedDietaryRestrictions("");
     setIsOpen(false);
@@ -101,8 +110,8 @@ const Filters = ({ dispatch, restaurants }) => {
             <select
               name="cuisine"
               id="cuisine"
-              value={selectedCuisine}
-              onChange={(event) => setselectedCuisine(event.target.value)}
+              value={filters.cuisine}
+              onChange={handleCuisineChange}
             >
               <option value="">Show all</option>
               <option value="italian">Italian</option>
@@ -200,7 +209,7 @@ const Filters = ({ dispatch, restaurants }) => {
 };
 
 function mapReduxStateToProps(reduxState) {
-  return { restaurants: reduxState.restaurants };
+  return { restaurants: reduxState.restaurants, filters: reduxState.filters };
 }
 
 export default connect(mapReduxStateToProps)(Filters);
