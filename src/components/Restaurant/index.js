@@ -1,13 +1,8 @@
-import React, {useLayoutEffect} from "react";
+import React, { useLayoutEffect } from "react";
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 
-import BackButton from "./BackButton";
-import "./Restaurant.scss";
-
-// Imports from Open Layers, in order to display map
-// import Map from "ol/Map";
-// import View from "ol/View";
+//Imports for Open Layers map
 import { Vector as VectorLayer } from "ol/layer";
 import { fromLonLat } from "ol/proj";
 import { Vector as VectorSource } from "ol/source";
@@ -19,8 +14,14 @@ import View from "ol/View";
 import TileLayer from "ol/layer/Tile";
 import OSM from "ol/source/OSM";
 
+import BackButton from "./BackButton";
+import "./Restaurant.scss";
+
 const Restaurant = ({ restaurants }) => {
   let { name } = useParams();
+  const restaurant = restaurants.find((item) => item.name === name);
+  const lng = restaurant.geometry.location.lng;
+  const lat = restaurant.geometry.location.lat;
 
   // Creating a map instance,
   // and a layer of the map with a blue pin of the restaurant location, in the middle
@@ -33,34 +34,26 @@ const Restaurant = ({ restaurants }) => {
       ],
       target: "map",
       view: new View({
-        center: fromLonLat([
-          restaurant.geometry.location.lng,
-          restaurant.geometry.location.lat,
-        ]),
+        center: fromLonLat([lng, lat]),
         zoom: 18,
       }),
     });
-  
+
     const layer = new VectorLayer({
       source: new VectorSource({
         features: [
           new Feature({
-            geometry: new Point(
-              fromLonLat([restaurant.geometry.location.lng, restaurant.geometry.location.lat])
-            ),
-            // color: "red",
+            geometry: new Point(fromLonLat([lng, lat])),
           }),
         ],
       }),
     });
     map.addLayer(layer);
-  }, [])  
+  }, [lng, lat]);
 
   if (restaurants.length === 0) {
     return <>Please return to Home page...</>;
   }
-
-  const restaurant = restaurants.filter((item) => item.name === name)[0];
 
   return (
     <>
