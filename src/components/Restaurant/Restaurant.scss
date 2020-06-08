@@ -28,11 +28,31 @@
         font-size: 18px;
       }
 
+      @include _370 {
+        font-size: 14px;
+      }
+
       span {
         color: #949494;
         text-transform: lowercase;
         font-size: 20px;
         font-weight: normal;
+
+        @include _970 {
+          font-size: 22px;
+        }
+
+        @include _800 {
+          font-size: 20px;
+        }
+
+        @include _450 {
+          font-size: 18px;
+        }
+
+        @include _370 {
+          font-size: 14px;
+        }
       }
     }
 
@@ -60,6 +80,11 @@
         margin-bottom: 11px;
       }
 
+      @include _370 {
+        font-size: 10px;
+        margin-bottom: 10px;
+      }
+
       span {
         color: #949494;
         text-transform: lowercase;
@@ -85,13 +110,40 @@
       @include _450 {
         font-size: 14px;
       }
+
+      @include _420 {
+        font-size: 12px;
+      }
+
+      @include _370 {
+        font-size: 11px;
+      }
     }
 
     .address {
       margin-bottom: 30px;
       font-weight: bold;
-    }
 
+      @include _970 {
+        margin-bottom: 24px;
+      }
+
+      @include _800 {
+        margin-bottom: 20px;
+      }
+
+      @include _600 {
+        margin-bottom: 18px;
+      }
+
+      @include _450 {
+        margin-bottom: 16px;
+      }
+
+      @include _370 {
+        margin-bottom: 14px;
+      }
+    }
   }
 
   img {
@@ -110,5 +162,24 @@
       width: 100px;
       height: 100px;
     }
+  }
+}
+
+$border-color: #d2d2d2;
+$border-color-hover: #7e7e7e;
+$input-background: #fff;
+
+.button-back {
+  border: 1px solid $border-color;
+  border-radius: 2px;
+  padding: 7px 10px;
+  cursor: pointer;
+  background-color: $input-background;
+  margin-bottom: 10px;
+
+  &:hover {
+    background-color: $border-color;
+    border-color: $border-color-hover;
+    transition: background-color 0.3s ease-in-out;
   }
 }

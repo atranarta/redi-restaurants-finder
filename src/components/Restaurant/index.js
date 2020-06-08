@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 
+import BackButton from "./BackButton";
 import "./Restaurant.scss";
 
 const Restaurant = ({ restaurants }) => {
@@ -12,9 +13,9 @@ const Restaurant = ({ restaurants }) => {
   }
 
   const restaurant = restaurants.filter((item) => item.name === name)[0];
-
   return (
     <>
+      <BackButton />
       <div className="RestaurantCard">
         <img src={restaurant.photos[0].links[1]} alt="restaurant" />
         <div className="textbox">

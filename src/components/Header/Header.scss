@@ -45,12 +45,17 @@ header {
     background-size: 700px;
   }
 
+  @include _370 {
+    height: 120px;
+    background-size: 600px;
+  }
+
   .title-wrapper {
     padding: 40px 0px;
 
     .title-box {
       padding: 5px 40px;
-      background-color: rgba(#FFF, 0.5);
+      background-color: rgba(#fff, 0.8);
       position: relative;
 
       @include _600 {
@@ -94,10 +99,15 @@ header {
     @include _420 {
       font-size: 20px;
     }
+
+    @include _370 {
+      font-size: 18px;
+    }
   }
 
   .home-icon {
-    filter: invert(2%) sepia(18%) saturate(5%) hue-rotate(314deg) brightness(90%) contrast(88%);
+    filter: invert(2%) sepia(18%) saturate(5%) hue-rotate(314deg)
+      brightness(90%) contrast(88%);
     position: absolute;
     top: 8px;
     left: 33px;
