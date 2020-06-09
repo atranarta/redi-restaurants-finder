@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Restaurant from "./components/Restaurant";
 import Restaurants from "./components/Restaurants";
+import PageNotFound from "./components/PageNotFound";
 
 import "./index.scss";
 
@@ -16,8 +17,11 @@ const App = () => {
           <Route path="/restaurants/:name">
             <Restaurant />
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <Restaurants />
+          </Route>
+          <Route>
+            <PageNotFound />
           </Route>
         </Switch>
       </main>
