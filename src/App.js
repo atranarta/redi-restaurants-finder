@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Restaurant from "./components/Restaurant";
 import Restaurants from "./components/Restaurants";
+import Footer from "./components/Footer";
 
 import "./index.scss";
 
@@ -21,6 +22,7 @@ const App = () => {
           </Route>
         </Switch>
       </main>
+      <Footer />
     </div>
   );
 };
