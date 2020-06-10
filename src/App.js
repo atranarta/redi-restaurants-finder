@@ -5,7 +5,9 @@ import { connect } from "react-redux";
 import Header from "./components/Header";
 import Restaurant from "./components/Restaurant";
 import Restaurants from "./components/Restaurants";
+
 import { actionTypes } from "./redux-store/actionTypes";
+import PageNotFound from "./components/PageNotFound";
 
 import "./index.scss";
 
@@ -39,8 +41,11 @@ const App = ({ dispatch }) => {
           <Route path="/restaurants/:name">
             <Restaurant />
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <Restaurants />
+          </Route>
+          <Route>
+            <PageNotFound />
           </Route>
         </Switch>
       </main>
