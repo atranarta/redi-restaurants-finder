@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 
 import FilterItem from "./FilterItem";
@@ -16,6 +16,13 @@ const Filters = ({ dispatch, restaurants }) => {
   ] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    dispatch({
+      type: actionTypes.filterAction,
+      payload: { filteredRestaurants },
+    });
+  });
 
   const filterRestaurantsByPrice = (rest) => {
     if (selectedPrice !== "" && typeof rest.price_level !== "undefined") {
@@ -85,12 +92,6 @@ const Filters = ({ dispatch, restaurants }) => {
     .filter(filterRestaurantsByType)
     .filter(filterRestaurantsByDietaryRestrictions)
     .filter(filterRestaurantsByOpen);
-
-  //Dispatching the list of filtered restaurants to the redux store
-  dispatch({
-    type: actionTypes.filterAction,
-    payload: { filteredRestaurants },
-  });
 
   return (
     <div className="filterSearchBox">
